@@ -23,3 +23,9 @@ collectstatic: install
 
 clean:
 	rm -rf venv static db.sqlite3
+
+format fmt: install
+	venv/bin/black .
+
+freeze:
+	venv/bin/pip freeze > requirements.txt
