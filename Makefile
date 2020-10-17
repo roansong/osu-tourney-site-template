@@ -20,3 +20,6 @@ test: install
 collectstatic: install
 	mkdir static
 	venv/bin/python manage.py collectstatic
+
+clean:
+	rm -rf venv static db.sqlite3
