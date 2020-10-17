@@ -1,4 +1,4 @@
-default: install migrate
+default: install migrate collectstatic
 	venv/bin/python manage.py runserver
 
 venv:
@@ -16,3 +16,7 @@ shell: install
 
 test: install
 	venv/bin/python manage.py test
+
+collectstatic: install
+	mkdir static
+	venv/bin/python manage.py collectstatic
