@@ -1,4 +1,6 @@
-default: install migrate collectstatic
+default: install migrate collectstatic run
+
+make run:
 	venv/bin/python manage.py runserver
 
 venv:
@@ -18,8 +20,8 @@ test: install
 	venv/bin/python manage.py test
 
 collectstatic: install
-	mkdir static
-	venv/bin/python manage.py collectstatic
+	mkdir -p static
+	venv/bin/python manage.py collectstatic --no-input
 
 clean:
 	rm -rf venv static db.sqlite3
