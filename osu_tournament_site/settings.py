@@ -54,7 +54,7 @@ ROOT_URLCONF = "osu_tournament_site.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": ["osu_tournament_site/templates", "ozapt/templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
