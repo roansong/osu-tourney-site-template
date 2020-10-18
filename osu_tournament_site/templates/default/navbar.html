@@ -1,0 +1,40 @@
+<style>
+    .grid-container {
+        background-color: #222222;
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        padding: 15px 0;
+        justify-content: center;
+    }
+
+    .header {
+        display: flex;
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .header-item {
+        margin: 0 14px;
+        display: flex;
+    }
+
+    .header a {
+        text-decoration: none;
+        color: white;
+        font-family: "Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
+    }
+</style>
+
+<div class="grid-container">
+    <nav>
+        <ul id="nav" class="header">
+            <li class="header-item"><a href="{% url 'home' %}">Home</a></li>
+            <li class="header-item"><a href="{% url 'about' %}">About</a></li>
+            <li class="header-item"><a href="">Maps</a></li>
+            <li class="header-item"><a href="">Schedule</a></li>
+            <li class="header-item"><a href="">Teams</a></li>
+            <li class="header-item"><a href="">Players</a></li>
+        </ul>
+    </nav>
+    <div id="content"></div>
+</div>
