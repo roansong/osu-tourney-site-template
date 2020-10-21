@@ -1,1 +1,1 @@
-web: gunicorn myproject.wsgi
+web: gunicorn osu_tournament_site.wsgi
