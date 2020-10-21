@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en-gb">
 <head>
@@ -27,7 +28,7 @@
         vertical-align: baseline;
     }
     body {
-        background-color: #8888aa;
+        background-image: url("{% static "osu_tournament_site/images/bg.png" %}");
     }
 </style>
 {% block nav %}

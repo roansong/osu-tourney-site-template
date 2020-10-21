@@ -15,11 +15,19 @@
     }
 
     .header-item {
-        margin: 0 14px;
+        margin: auto 14px;
         display: flex;
     }
 
-    .header a {
+    .header-bullet {
+        margin: auto;
+        display: flex;
+        vertical-align: center;
+        width: 4px;
+        height: 4px;
+    }
+
+    .header h2,a{
         text-decoration: none;
         color: white;
         font-family: "Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
@@ -29,21 +37,26 @@
 <div class="grid-container">
     <nav>
         <ul id="nav" class="header">
+            <li class="header-item"><h2>&lt;LOGO&gt;</h2></li>
             <li class="header-item"><a href="{{ home_url }}">Home</a></li>
             {% if about_url %}
-                <li class="header-item"><img alt="Bullet point" src="{% static "osu_tournament_site/images/bullet.png" %}"/></li>
+                <li class="header-bullet"><img alt="Bullet point" src="{% static "osu_tournament_site/images/bullet.png" %}"/></li>
                 <li class="header-item"><a href="{{ about_url }}">About</a></li>
             {% endif %}
             {% if mappool_url %}
+                <li class="header-bullet"><img alt="Bullet point" src="{% static "osu_tournament_site/images/bullet.png" %}"/></li>
                 <li class="header-item"><a href="{{ mappool_url }}">Mappool</a></li>
             {% endif %}
             {% if schedule_url %}
+                <li class="header-bullet"><img alt="Bullet point" src="{% static "osu_tournament_site/images/bullet.png" %}"/></li>
                 <li class="header-item"><a href="{{ schedule_url }}">Schedule</a></li>
             {% endif %}
             {% if teams_url %}
+                <li class="header-bullet"><img alt="Bullet point" src="{% static "osu_tournament_site/images/bullet.png" %}"/></li>
                 <li class="header-item"><a href="{{ teams_url }}">Teams</a></li>
             {% endif %}
             {% if players_url %}
+                <li class="header-bullet"><img alt="Bullet point" src="{% static "osu_tournament_site/images/bullet.png" %}"/></li>
                 <li class="header-item"><a href="{{ players_url }}">Players</a></li>
             {% endif %}
         </ul>
