@@ -1,7 +1,8 @@
+PORT=8000
 default: install migrate collectstatic run
 
 make run:
-	venv/bin/python manage.py runserver
+	venv/bin/python manage.py runserver ${PORT}
 
 venv:
 	python -m venv venv

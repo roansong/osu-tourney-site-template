@@ -28,12 +28,22 @@
 <div class="grid-container">
     <nav>
         <ul id="nav" class="header">
-            <li class="header-item"><a href="{% url 'home' %}">Home</a></li>
-            <li class="header-item"><a href="{% url 'about' %}">About</a></li>
-            <li class="header-item"><a href="">Maps</a></li>
-            <li class="header-item"><a href="">Schedule</a></li>
-            <li class="header-item"><a href="">Teams</a></li>
-            <li class="header-item"><a href="">Players</a></li>
+            <li class="header-item"><a href="{{ home_url }}">Home</a></li>
+            {% if about_url %}
+                <li class="header-item"><a href="{{ about_url }}">About</a></li>
+            {% endif %}
+            {% if mappool_url %}
+                <li class="header-item"><a href="{{ mappool_url }}">Mappool</a></li>
+            {% endif %}
+            {% if schedule_url %}
+                <li class="header-item"><a href="{{ schedule_url }}">Schedule</a></li>
+            {% endif %}
+            {% if teams_url %}
+                <li class="header-item"><a href="{{ teams_url }}">Teams</a></li>
+            {% endif %}
+            {% if players_url %}
+                <li class="header-item"><a href="{{ players_url }}">Players</a></li>
+            {% endif %}
         </ul>
     </nav>
     <div id="content"></div>
