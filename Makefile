@@ -21,11 +21,12 @@ test: install
 	venv/bin/python manage.py test
 
 collectstatic: install
+	mkdir -p staticfiles
 	mkdir -p static
 	venv/bin/python manage.py collectstatic --no-input
 
 clean:
-	rm -rf venv static db.sqlite3
+	rm -rf venv static staticfiles db.sqlite3
 
 format fmt: install
 	venv/bin/black .

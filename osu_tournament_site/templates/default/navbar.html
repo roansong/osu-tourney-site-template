@@ -1,3 +1,4 @@
+{% load static %}
 <style>
     .grid-container {
         background-color: #222222;
@@ -30,6 +31,7 @@
         <ul id="nav" class="header">
             <li class="header-item"><a href="{{ home_url }}">Home</a></li>
             {% if about_url %}
+                <li class="header-item"><img alt="Bullet point" src="{% static "osu_tournament_site/images/bullet.png" %}"/></li>
                 <li class="header-item"><a href="{{ about_url }}">About</a></li>
             {% endif %}
             {% if mappool_url %}

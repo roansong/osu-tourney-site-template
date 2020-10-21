@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv("SECRET_KEY", "blahblahblah")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv("DEBUG", "").lower() == "false"
+DEBUG = os.getenv("DEBUG", "").lower() != "false"
 
 ALLOWED_HOSTS = ["ozapt.herokuapp.com", "127.0.0.1"]
 
@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "ozapt",
 ]
 
 MIDDLEWARE = [
@@ -45,6 +46,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
 ROOT_URLCONF = "osu_tournament_site.urls"
@@ -111,11 +113,16 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_URL = "/static/"
-STATIC_ROOT = BASE_DIR / "static"
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = '/static/'
 
-CSRF_COOKIE_SECURE = True
-SESSION_COOKIE_SECURE = True
+# Extra places for collectstatic to find static files.
+STATICFILES_DIRS = (
+    BASE_DIR / "static",
+    BASE_DIR / "osu_tournament_site" / "static",
+)
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 HOME_URL = "/"
 ABOUT_URL = MAPPOOL_URL = SCHEDULE_URL = TEAMS_URL = PLAYERS_URL = ""
