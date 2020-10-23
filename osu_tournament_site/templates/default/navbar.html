@@ -18,6 +18,11 @@
         margin: auto 14px;
         display: flex;
     }
+    .header-image img {
+        margin-top: 2px;
+        width: 43px;
+        height: 43px;
+    }
 
     .header-bullet {
         margin: auto;
@@ -32,11 +37,15 @@
         color: white;
         font-family: "Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
     }
+    .header .header-item a:hover {
+        cursor: pointer;
+    }
 </style>
 
 <div class="grid-container">
     <nav>
         <ul id="nav" class="header">
+            <li class="header-item header-image"><a href="{{ home_url }}"><img src="{% static 'ozapt/images/logo.png' %}" alt="osu!za logo"/></a></li>
             <li class="header-item"><h2>osu!za Private Tournament</h2></li>
             <li class="header-item"><a href="{{ home_url }}">Home</a></li>
             {% if about_url %}
@@ -60,7 +69,7 @@
                 <li class="header-item"><a href="{{ players_url }}">Players</a></li>
             {% endif %}
             <li class="header-bullet"><img alt="Bullet point" src="{% static "osu_tournament_site/images/bullet.png" %}"/></li>
-            <li class="header-item"><a target="_blank" href="https://discord.gg/eMhKcP7"><img alt="Discord" height="45px" src="{% static 'ozapt/images/discord.svg' %}"/></a></li>
+            <li class="header-item header-image"><a target="_blank" href="https://discord.gg/eMhKcP7"><img alt="Discord" height="45px" src="{% static 'ozapt/images/discord.svg' %}"/></a></li>
         </ul>
     </nav>
     <div id="content"></div>
