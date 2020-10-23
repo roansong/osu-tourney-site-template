@@ -37,7 +37,7 @@
 <div class="grid-container">
     <nav>
         <ul id="nav" class="header">
-            <li class="header-item"><h2>OSU!ZA Private Tournament</h2></li>
+            <li class="header-item"><h2>osu!za Private Tournament</h2></li>
             <li class="header-item"><a href="{{ home_url }}">Home</a></li>
             {% if about_url %}
                 <li class="header-bullet"><img alt="Bullet point" src="{% static "osu_tournament_site/images/bullet.png" %}"/></li>
@@ -59,6 +59,8 @@
                 <li class="header-bullet"><img alt="Bullet point" src="{% static "osu_tournament_site/images/bullet.png" %}"/></li>
                 <li class="header-item"><a href="{{ players_url }}">Players</a></li>
             {% endif %}
+            <li class="header-bullet"><img alt="Bullet point" src="{% static "osu_tournament_site/images/bullet.png" %}"/></li>
+            <li class="header-item"><a target="_blank" href="https://discord.gg/eMhKcP7"><img alt="Discord" height="45px" src="{% static 'ozapt/images/discord.svg' %}"/></a></li>
         </ul>
     </nav>
     <div id="content"></div>
