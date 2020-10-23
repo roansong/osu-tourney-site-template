@@ -124,4 +124,5 @@ STATICFILES_DIRS = (
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 HOME_URL = "/"
-ABOUT_URL = MAPPOOL_URL = SCHEDULE_URL = TEAMS_URL = PLAYERS_URL = ""
+ABOUT_URL = SCHEDULE_URL = TEAMS_URL = PLAYERS_URL = ""
+MAPPOOL_URL = "https://docs.google.com/spreadsheets/d/1-ZD85wK7QFSiMDrHTdWwM9AM-YTpQHp-bYzU7fnmvMQ/edit?usp=sharing"

@@ -37,7 +37,7 @@
 <div class="grid-container">
     <nav>
         <ul id="nav" class="header">
-            <li class="header-item"><h2>&lt;LOGO&gt;</h2></li>
+{#            <li class="header-item"><h2>&lt;LOGO&gt;</h2></li>#}
             <li class="header-item"><a href="{{ home_url }}">Home</a></li>
             {% if about_url %}
                 <li class="header-bullet"><img alt="Bullet point" src="{% static "osu_tournament_site/images/bullet.png" %}"/></li>
@@ -45,7 +45,7 @@
             {% endif %}
             {% if mappool_url %}
                 <li class="header-bullet"><img alt="Bullet point" src="{% static "osu_tournament_site/images/bullet.png" %}"/></li>
-                <li class="header-item"><a href="{{ mappool_url }}">Mappool</a></li>
+                <li class="header-item"><a target="_blank" href="{{ mappool_url }}">Mappool</a></li>
             {% endif %}
             {% if schedule_url %}
                 <li class="header-bullet"><img alt="Bullet point" src="{% static "osu_tournament_site/images/bullet.png" %}"/></li>

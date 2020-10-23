@@ -30,21 +30,6 @@ class IndexView(TemplateView):
         super().__init__()
         if template_exists(INDEX_TEMPLATE_NAME):
             self.template_name = INDEX_TEMPLATE_NAME
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        add_nav_urls_to_context(context)
-        return context
-
-
-class AboutView(TemplateView):
-    template_name = "default/about.html"
-
-    def __init__(self):
-        super().__init__()
-        if template_exists(ABOUT_TEMPLATE_NAME):
-            self.template_name = ABOUT_TEMPLATE_NAME
-
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         add_nav_urls_to_context(context)

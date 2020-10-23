@@ -1,4 +1,90 @@
-{%  extends "default/index.html" %}
-{#{% block body %}#}
-{#    This is my custom index page.#}
-{#{% endblock body %}#}
+{% extends "default/index.html" %}
+{% load static %}
+{% block body %}
+    <style>
+        .content-box {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            margin-top: 10px;
+            gap: 10px;
+        }
+
+        .content-body {
+            background-color: rgb(32, 32, 32);
+            padding: 20px;
+        }
+
+        .left-column-box {
+            grid-column: 1 / auto;
+            display: grid;
+        }
+
+        h1, p {
+            color: rgb(200, 207, 213);
+            line-height: 1.3;
+        }
+
+        p {
+            font-size: 16px;
+        }
+
+        .discord-card {
+            background-color: #2C2F33;
+            text-align: center;
+            padding: 40px 0;
+            width: 100%;
+        }
+
+        .discord-card h1 {
+            font-size: 4rem;
+            line-height: 0.9;
+        }
+
+        .discord-card p {
+            color: #7289DA;
+            font-family: "Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
+            font-weight: bold;
+            line-height: 0.9;
+            font-size: 12px;
+        }
+
+        .right-column {
+            grid-row: 1 / 3;
+            grid-column: 2;
+            display: grid;
+        }
+    </style>
+
+    <div class="content-box">
+        <div class="content-body left-column-box">
+            <a target="_blank"
+               href="https://docs.google.com/document/d/1Rz9jDjiPaTtIMDcFVdYeVAQI7cM_iA1awR9vv3g-Phs/edit?usp=sharing">
+                <img width="100%" src="{% static 'ozapt/images/about.png' %}" alt="About"/>
+            </a>
+        </div>
+        <div class="content-body left-column-box">
+            <a target="_blank" href="https://twitch.tv/Phreel">
+                <div class="discord-card">
+                    <h1 id="twitch">
+                        Twitch
+                    </h1>
+                    <p>
+                        Tourney stream or whatever else Phreel is up to
+                    </p>
+                </div>
+            </a>
+        </div>
+
+        <div class="right-column">
+            <div class="content-body">
+                <iframe
+                        src="https://player.twitch.tv/?channel=Phreel&parent=ozapt.herokuapp.com"
+                        height="100%"
+                        width="100%"
+                        allowfullscreen="true">
+                </iframe>
+            </div>
+        </div>
+    </div>
+
+{% endblock body %}
