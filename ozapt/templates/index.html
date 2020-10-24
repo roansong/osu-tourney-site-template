@@ -2,62 +2,10 @@
 {% load static %}
 {% block head %}
     <title>osu!za Private Tournament</title>
+    <link rel="stylesheet" href="{% static 'ozapt/styles.css' %}"/>
+    <link rel="stylesheet" href="{% static 'ozapt/index.css' %}"/>
 {% endblock head %}
 {% block body %}
-    <style>
-        .content-box {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            margin-top: 10px;
-            gap: 10px;
-        }
-
-        .content-body {
-            background-color: rgb(32, 32, 32);
-            padding: 20px;
-        }
-
-        .left-column-box {
-            grid-column: 1 / auto;
-            display: grid;
-        }
-
-        h1, p {
-            color: rgb(200, 207, 213);
-            line-height: 1.3;
-        }
-
-        p {
-            font-size: 16px;
-        }
-
-        .discord-card {
-            background-color: #2C2F33;
-            text-align: center;
-            padding: 40px 0;
-            width: 100%;
-        }
-
-        .discord-card h1 {
-            font-size: 4rem;
-            line-height: 1.2;
-            color: white;
-        }
-
-        .discord-card p {
-            color: #7289DA;
-            font-family: "Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
-            font-weight: bold;
-            line-height: 1;
-            font-size: 12px;
-        }
-
-        .right-column {
-            grid-row: 1 / 4;
-            grid-column: 2;
-            display: grid;
-        }
-    </style>
 
     <div class="content-box">
         <div class="content-body left-column-box">
@@ -67,7 +15,8 @@
             </a>
         </div>
         <div class="content-body left-column-box">
-            <a target="_blank" href="https://docs.google.com/spreadsheets/d/1-ZD85wK7QFSiMDrHTdWwM9AM-YTpQHp-bYzU7fnmvMQ/edit?usp=sharing">
+            <a target="_blank"
+               href="https://docs.google.com/spreadsheets/d/1-ZD85wK7QFSiMDrHTdWwM9AM-YTpQHp-bYzU7fnmvMQ/edit?usp=sharing">
                 <img width="100%" src="{% static 'ozapt/images/mappool.png' %}" alt="Mappool"/>
             </a>
         </div>

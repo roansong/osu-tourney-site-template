@@ -1,6 +1,7 @@
 from django.conf import settings
+from django.db.models import QuerySet
 from django.urls import reverse, NoReverseMatch
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView
 
 from osu_tournament_site.utils import template_exists
 
@@ -30,7 +31,18 @@ class IndexView(TemplateView):
         super().__init__()
         if template_exists(INDEX_TEMPLATE_NAME):
             self.template_name = INDEX_TEMPLATE_NAME
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         add_nav_urls_to_context(context)
         return context
+
+
+class PlayersView(TemplateView):
+    template_name = "players.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        add_nav_urls_to_context(context)
+        return context
+

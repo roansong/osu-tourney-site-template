@@ -1,0 +1,6 @@
+.content-box {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    margin-top: 10px;
+    gap: 10px;
+}
