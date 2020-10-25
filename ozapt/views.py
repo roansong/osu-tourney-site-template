@@ -4,6 +4,7 @@ from django.urls import reverse, NoReverseMatch
 from django.views.generic import TemplateView, ListView
 
 from osu_tournament_site.utils import template_exists
+from stats import models
 
 INDEX_TEMPLATE_NAME = "index.html"
 ABOUT_TEMPLATE_NAME = "about.html"
@@ -38,11 +39,18 @@ class IndexView(TemplateView):
         return context
 
 
-class PlayersView(TemplateView):
+class PlayersView(ListView):
     template_name = "players.html"
+    context_object_name = "players"
+    object = models.User
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         add_nav_urls_to_context(context)
         return context
 
+    def get_queryset(self):
+        users = list(models.User.objects.all())
+        users = sorted(users, key=lambda user: user.tournament_rank, reverse=True)
+        users = sorted(users, key=lambda user: user.username.lower())
+        return users

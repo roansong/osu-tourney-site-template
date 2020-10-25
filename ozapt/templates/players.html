@@ -1,5 +1,6 @@
 {% extends "default/index.html" %}
 {% load static %}
+{% load humanize %}
 {% block head %}
     <title>osu!za Private Tournament</title>
     <link rel="stylesheet" href="{% static 'ozapt/styles.css' %}"/>
@@ -16,7 +17,7 @@
 
         .content-box {
             display: grid;
-            grid-template-columns: 1fr 3fr 1fr;
+            grid-template-columns: 1fr 4fr 1fr;
             margin-top: 10px;
             gap: 10px;
         }
@@ -41,31 +42,41 @@
             height: 80px;
             color: white;
             display: flex;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .player-card:hover {
+            box-shadow: 5px 5px 15px #2C2F33;
         }
 
         .player-tournament-rank {
             color: white;
-            font-size: 30px;
-            margin: 20px 10px;
+            font-size: 22px;
+            margin: 26px 10px 26px 0;
             font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
+            width: 100px;
         }
+
         .player-card-avatar img {
             height: 60px;
             width: 60px;
             padding: 10px;
         }
+
         .player-card-name {
             font-family: "Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
-            font-size: 30px;
-            margin: 20px 10px;
+            font-size: 25px;
+            margin: 26px 10px;
         }
+
         .player-card-flag img {
             width: 35px;
             height: 24px;
             margin: 15px 20px 15px 0;
         }
+
         .player-card-stats {
-            margin: 30px 0;
+            margin: 30px 15px 30px auto;
             font-size: 16px;
             font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
         }
@@ -74,76 +85,28 @@
         <div class="content-body middle-column-box">
             <h1>Players</h1>
             <ul class="player-list">
-                <li class="player-card">
-                    <span class="player-tournament-rank">#2</span>
-                    <span class="player-card-avatar">
-                        <img alt="roansong's avatar" src="https://a.ppy.sh/13606620?1596360329.png"/>
-                    </span>
-                    <span class="player-card-name">
-                        roansong
-                    </span>
-                    <span class="player-card-flag"><img src="https://osu.ppy.sh/images/flags/ZA.png" alt="ZA"/></span>
-                    <span class="player-card-stats">
-                        Country: #25 | Global: #255,000
-                    </span>
+                {% for player in players %}
+                    <a target="_blank" href="{{ player.profile_url }}">
+                        <li class="player-card">
+                            <span class="player-tournament-rank">#{{ forloop.counter }}</span>
+                            <span class="player-card-avatar">
+                            <img alt="{{ player.username }}'s avatar" title="{{ player.username }}'s avatar"
+                                 src="{{ player.avatar_url }}"/>
+                        </span>
+                            <span class="player-card-name">
+                            {{ player.username }}
+                        </span>
+                            <span class="player-card-flag">
+                            <img src="{{ player.flag_url }}" alt="{{ player.country }} flag"
+                                 title="{{ player.country }}"/>
+                        </span>
+                            <span class="player-card-stats">
+                            Country: #{{ player.country_rank }} | Global: #{{ player.global_rank|intcomma }}
+                        </span>
 
-                </li>
-                <li class="player-card">
-                    <span class="player-tournament-rank">#2</span>
-                    <span class="player-card-avatar">
-                        <img alt="roansong's avatar" src="https://a.ppy.sh/13606620?1596360329.png"/>
-                    </span>
-                    <span class="player-card-name">
-                        roansong
-                    </span>
-                    <span class="player-card-flag"><img src="https://osu.ppy.sh/images/flags/ZA.png" alt="ZA"/></span>
-                    <span class="player-card-stats">
-                        Country: #25 | Global: #255,000
-                    </span>
-
-                </li>
-                <li class="player-card">
-                    <span class="player-tournament-rank">#2</span>
-                    <span class="player-card-avatar">
-                        <img alt="roansong's avatar" src="https://a.ppy.sh/13606620?1596360329.png"/>
-                    </span>
-                    <span class="player-card-name">
-                        roansong
-                    </span>
-                    <span class="player-card-flag"><img src="https://osu.ppy.sh/images/flags/ZA.png" alt="ZA"/></span>
-                    <span class="player-card-stats">
-                        Country: #25 | Global: #255,000
-                    </span>
-
-                </li>
-                <li class="player-card">
-                    <span class="player-tournament-rank">#2</span>
-                    <span class="player-card-avatar">
-                        <img alt="roansong's avatar" src="https://a.ppy.sh/13606620?1596360329.png"/>
-                    </span>
-                    <span class="player-card-name">
-                        roansong
-                    </span>
-                    <span class="player-card-flag"><img src="https://osu.ppy.sh/images/flags/ZA.png" alt="ZA"/></span>
-                    <span class="player-card-stats">
-                        Country: #25 | Global: #255,000
-                    </span>
-
-                </li>
-                <li class="player-card">
-                    <span class="player-tournament-rank">#2</span>
-                    <span class="player-card-avatar">
-                        <img alt="roansong's avatar" src="https://a.ppy.sh/13606620?1596360329.png"/>
-                    </span>
-                    <span class="player-card-name">
-                        roansong
-                    </span>
-                    <span class="player-card-flag"><img src="https://osu.ppy.sh/images/flags/ZA.png" alt="ZA"/></span>
-                    <span class="player-card-stats">
-                        Country: #25 | Global: #255,000
-                    </span>
-
-                </li>
+                        </li>
+                    </a>
+                {% endfor %}
             </ul>
         </div>
 

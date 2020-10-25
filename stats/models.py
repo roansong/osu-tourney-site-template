@@ -54,13 +54,26 @@ class User(models.Model):
             country_rank=obj.get('pp_country_rank'),
             country=obj.get('country'),
         )
+
     @property
-    def url(self):
+    def profile_url(self):
         return f"https://osu.ppy.sh/users/{self.ext_id}"
 
     @property
     def acc(self):
         return sum([score.acc for score in self.score_set.all()]) / self.score_set.count()
+
+    @property
+    def avatar_url(self):
+        return f"https://a.ppy.sh/{self.ext_id}"
+
+    @property
+    def flag_url(self):
+        return f"https://osu.ppy.sh/images/flags/{self.country}.png"
+
+    @property
+    def tournament_rank(self):
+        return "-"
 
 
 class Match(models.Model):
