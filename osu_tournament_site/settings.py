@@ -125,6 +125,9 @@ STATICFILES_DIRS = (
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+API_HOST = f"https://osu.ppy.sh/api"
+API_KEY = os.environ.get('API_KEY')
+
 HOME_URL = "/"
 ABOUT_URL = SCHEDULE_URL = TEAMS_URL = PLAYERS_URL = ""
 MAPPOOL_URL = "https://docs.google.com/spreadsheets/d/1-ZD85wK7QFSiMDrHTdWwM9AM-YTpQHp-bYzU7fnmvMQ/edit?usp=sharing"

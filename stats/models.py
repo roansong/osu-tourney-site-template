@@ -40,8 +40,20 @@ class Division(models.Model):
 class User(models.Model):
     ext_id = models.CharField(max_length=25, unique=True)
     username = models.CharField(max_length=30)
+    country = models.CharField(max_length=2)
+    country_rank = models.IntegerField()
+    global_rank = models.IntegerField()
     division = models.ForeignKey(Division, on_delete=PROTECT, null=True)
 
+    @classmethod
+    def from_json(cls, obj: dict):
+        return User(
+            username=obj.get('username'),
+            ext_id=obj.get('user_id'),
+            global_rank=obj.get('pp_rank'),
+            country_rank=obj.get('pp_country_rank'),
+            country=obj.get('country'),
+        )
     @property
     def url(self):
         return f"https://osu.ppy.sh/users/{self.ext_id}"
