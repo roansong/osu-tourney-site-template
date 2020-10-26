@@ -23,6 +23,7 @@ def add_nav_urls_to_context(context):
     exc(settings.SCHEDULE_URL, "schedule")
     exc(settings.TEAMS_URL, "teams")
     exc(settings.PLAYERS_URL, "players")
+    context['master_sheet_url'] = settings.MASTER_SHEET_URL
 
 
 class IndexView(TemplateView):

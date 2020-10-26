@@ -16,7 +16,7 @@ MODS = {
 }
 
 DOWNLOAD_LINKS = {
-    'Qualifiers': "https://www.dropbox.com/s/yk4lfta72l6nhtl/OPTQualifiers.rar?dl=0"
+    'Qualifiers': "https://www.dropbox.com/s/yk4lfta72l6nhtl/OPTQualifiers.rar?dl=1"
 }
 
 
