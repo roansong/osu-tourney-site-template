@@ -1,5 +1,10 @@
 from django.db import models
-from django.db.models import PROTECT
+from django.db.models import PROTECT, DO_NOTHING
+
+
+class MapPool(models.Model):
+    name = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True, null=True)
 
 
 class Beatmap(models.Model):
@@ -23,6 +28,62 @@ class Beatmap(models.Model):
     file_md5 = models.TextField()
     tags = models.TextField()
     official = models.BooleanField(default=False)
+    mod = models.CharField(max_length=2, blank=True, null=True)
+    mappool = models.ForeignKey(MapPool, null=True, on_delete=DO_NOTHING)
+
+    @classmethod
+    def from_json(cls, obj: dict):
+        return cls(
+            ext_id=obj.get("beatmap_id"),
+            beatmapset_id=obj.get("beatmapset_id"),
+            title=obj.get("title"),
+            version=obj.get("version"),
+            artist=obj.get("artist"),
+            bpm=obj.get("bpm"),
+            creator=obj.get("creator"),
+            difficultyrating=obj.get("difficultyrating"),
+            diff_aim=obj.get("diff_aim"),
+            diff_speed=obj.get("diff_speed"),
+            diff_size=obj.get("diff_size"),
+            diff_overall=obj.get("diff_overall"),
+            diff_drain=obj.get("diff_drain"),
+            diff_approach=obj.get("diff_approach"),
+            hit_length=obj.get("hit_length"),
+            total_length=obj.get("total_length"),
+            max_combo=obj.get("max_combo"),
+            file_md5=obj.get("file_md5"),
+            tags=obj.get("tags"),
+        )
+
+    def apply_mod(self):
+        def calc_ms(ar):
+            if ar <= 5:
+                return 1200 + 120 * (5 - ar)
+            return 1200 - 150 * (ar - 5)
+
+        def calc_ar(ms):
+            if ms >= 1200:
+                return (ms - 1200) / 120 - 5
+            return -(ms - 1200) / 150 + 5
+
+        def calc_od_ms(od):
+            return 79.5 - 6 * od
+
+        def calc_od(ms):
+            return -(ms - 79.5) / 6
+
+        if 'HR' == self.mod:
+            self.diff_size *= 1.3
+            self.diff_approach = min((self.diff_approach * 1.4, 10))
+            self.diff_drain = min((self.diff_drain * 1.4, 10))
+            self.diff_overall = min((self.diff_overall * 1.4, 10))
+
+        if 'DT' == self.mod:
+            self.bpm *= 1.5
+            self.total_length = int(self.total_length / 1.5)
+            self.diff_approach = calc_ar(calc_ms(self.diff_approach) / 1.5)
+            self.diff_overall = calc_od(calc_od_ms(self.diff_overall) / 1.5)
+        return self
 
     @property
     def display_title(self):
@@ -31,6 +92,16 @@ class Beatmap(models.Model):
     @property
     def url(self):
         return f"https://osu.ppy.sh/beatmaps/{self.ext_id}"
+
+    @property
+    def cover(self):
+        return f"https://assets.ppy.sh/beatmaps/{self.beatmapset_id}/covers/cover.jpg"
+
+    @property
+    def length_format(self):
+        minutes = self.total_length // 60
+        seconds = self.total_length % 60
+        return f"{minutes}:{seconds:02}"
 
 
 class Division(models.Model):
@@ -47,7 +118,7 @@ class User(models.Model):
 
     @classmethod
     def from_json(cls, obj: dict):
-        return User(
+        return cls(
             username=obj.get('username'),
             ext_id=obj.get('user_id'),
             global_rank=obj.get('pp_rank'),

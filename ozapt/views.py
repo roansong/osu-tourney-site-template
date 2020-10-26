@@ -54,3 +54,31 @@ class PlayersView(ListView):
         users = sorted(users, key=lambda user: user.tournament_rank, reverse=True)
         users = sorted(users, key=lambda user: user.username.lower())
         return users
+
+
+MOD_ORDER = {
+    'NM': 1,
+    'HD': 2,
+    'HR': 3,
+    'DT': 4,
+    'FM': 5,
+}
+
+
+class MapPoolView(ListView):
+    template_name = "mappool.html"
+    model = models.MapPool
+    context_object_name = 'mappool'
+
+    def get_queryset(self):
+        return models.MapPool.objects.all().order_by('-created_at').first()
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        add_nav_urls_to_context(context)
+        context['maps'] = {}
+        context['beatmaps'] = sorted(
+            [beatmap.apply_mod() for beatmap in self.get_queryset().beatmap_set.all()],
+            key=lambda x: MOD_ORDER[x.mod]
+        )
+        return context

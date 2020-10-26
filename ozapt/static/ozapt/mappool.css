@@ -1,0 +1,137 @@
+.mappool, .mappool-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.map-artist {
+    font-size: 18px;
+}
+
+.map-diff, .map-title {
+    font-weight: 700;
+}
+
+.diff-wrapper {
+    white-space: nowrap;
+    display: flex;
+    justify-content: flex-end;
+    overflow: hidden;
+}
+
+.map-diff {
+    line-height: normal;
+    text-align: right;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.map-bpm, .map-specs, .map-stars, .map-time {
+    display: grid;
+    grid-auto-flow: column;
+    align-items: center;
+}
+
+.map-specs {
+    font-size: 20px;
+    justify-content: end;
+    grid-column-gap: 20px;
+}
+
+.map-bpm, .map-stars, .map-time {
+    grid-column-gap: 4px;
+}
+
+.mappool-wrapper {
+    margin-top: 40px;
+}
+
+.mappool {
+    flex-wrap: wrap;
+    width: 75%;
+    font-size: 24px;
+    white-space: nowrap;
+}
+
+.map {
+    position: relative;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    height: 3em;
+    padding: 17px;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.map-left, .map-right {
+    max-width: 100%;
+    overflow: hidden;
+    min-width: 100%;
+}
+
+.map-left {
+    grid-column: 1/2;
+}
+
+.map-right {
+    grid-column: 2/3;
+    display: grid;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.map-wrapper {
+    margin-bottom: 5px;
+}
+
+.mod-NM {
+    box-shadow: -10px 0 0 #DDDDDD;
+}
+
+.mod-NM:hover {
+    box-shadow: -15px 0 0 #DDDDDD;
+}
+
+.mod-HD {
+    box-shadow: -10px 0 0 #6e4cbc;
+}
+
+.mod-HD:hover {
+    box-shadow: -15px 0 0 #6e4cbc;
+}
+
+
+.mod-HR {
+    box-shadow: -10px 0 0 #c81d1d;
+}
+
+.mod-HR:hover {
+    box-shadow: -15px 0 0 #c81d1d;
+}
+
+.mod-DT {
+    box-shadow: -10px 0 0 #529827;
+}
+
+.mod-DT:hover {
+    box-shadow: -15px 0 0 #529827;
+}
+
+.mod-FM {
+    box-shadow: -10px 0 0 #a502b1;
+}
+
+.mod-FM:hover {
+    box-shadow: -15px 0 0 #a502b1;
+}
+
+.mod-TB {
+    box-shadow: -10px 0 0 #ff5700;
+}
+
+.mod-TB:hover {
+    box-shadow: -15px 0 0 #ff5700;
+}
