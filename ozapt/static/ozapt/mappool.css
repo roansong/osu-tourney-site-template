@@ -67,7 +67,7 @@
     justify-items: center;
     height: 3em;
     padding: 17px;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 600px 300px;
 }
 
 .map-wrapper {
