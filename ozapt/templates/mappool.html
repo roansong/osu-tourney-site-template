@@ -5,10 +5,19 @@
     <title>osu!za Private Tournament</title>
     <link rel="stylesheet" href="{% static 'ozapt/styles.css' %}"/>
     <link rel="stylesheet" href="{% static 'ozapt/mappool.css' %}"/>
+    <script src="https://kit.fontawesome.com/fd151f38bf.js" crossorigin="anonymous"></script>
 {% endblock head %}
 {% block body %}
     <div class="mappool-wrapper">
         <div class="mappool">
+            <div class="mappool-header">
+                {{ mappool.name }} Pool
+                {% if mappool.download_url %}
+                    <a href="{{ mappool.download_url }}">
+                        <i class="fas fa-cloud-download-alt"></i>
+                    </a>
+                {% endif %}
+            </div>
             <div class="maps">
                 {% for beatmap in beatmaps %}
                     <div class="map-wrapper mod-{{ beatmap.mod }}">
@@ -16,6 +25,7 @@
                             <div class="map"
                                  style="background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)) center bottom / cover, url({{ beatmap.cover }});">
                                 <div class="map-left">
+                                    <div class="map-identifier">{{ beatmap.identifier }}</div>
                                     <div class="map-artist">{{ beatmap.artist }}</div>
                                     <div class="map-title">{{ beatmap.title }}</div>
                                 </div>

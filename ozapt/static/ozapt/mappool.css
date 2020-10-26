@@ -8,6 +8,13 @@
     font-size: 18px;
 }
 
+.mappool-header {
+    font-size: 40px;
+    font-weight: 700;
+    color: white;
+    font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
+}
+
 .map-diff, .map-title {
     font-weight: 700;
 }
@@ -63,11 +70,16 @@
     grid-template-columns: repeat(2, 1fr);
 }
 
+.map-wrapper {
+    margin-bottom: 5px;
+}
+
 .map-left, .map-right {
     max-width: 100%;
     overflow: hidden;
     min-width: 100%;
 }
+
 
 .map-left {
     grid-column: 1/2;
@@ -81,10 +93,6 @@
 a {
     color: #fff;
     text-decoration: none;
-}
-
-.map-wrapper {
-    margin-bottom: 5px;
 }
 
 .mod-NM {

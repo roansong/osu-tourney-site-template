@@ -5,6 +5,7 @@ from django.db.models import PROTECT, DO_NOTHING
 class MapPool(models.Model):
     name = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True, null=True)
+    download_url = models.URLField(null=True, blank=True)
 
 
 class Beatmap(models.Model):
@@ -30,6 +31,7 @@ class Beatmap(models.Model):
     official = models.BooleanField(default=False)
     mod = models.CharField(max_length=2, blank=True, null=True)
     mappool = models.ForeignKey(MapPool, null=True, on_delete=DO_NOTHING)
+    identifier = models.TextField(null=True, blank=True)
 
     @classmethod
     def from_json(cls, obj: dict):
