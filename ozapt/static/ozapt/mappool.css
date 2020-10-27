@@ -59,6 +59,7 @@
 }
 
 .mappool {
+    flex-direction: column;
     flex-wrap: wrap;
     width: 75%;
     font-size: 24px;
