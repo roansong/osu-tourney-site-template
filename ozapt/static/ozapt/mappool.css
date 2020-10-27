@@ -38,10 +38,11 @@
     text-overflow: ellipsis;
 }
 
-.map-bpm, .map-specs, .map-stars, .map-time {
+.map-bpm, .map-specs, .map-stars, .map-time, .map-ar, .map-cs, .map-od {
     display: grid;
     grid-auto-flow: column;
     align-items: center;
+    margin-top: 3px;
 }
 
 .map-specs {
