@@ -102,50 +102,50 @@ a {
 }
 
 .mod-NM {
-    box-shadow: -10px 0 0 #DDDDDD;
+    box-shadow: -10px 0 0 #6fa8dc;
 }
 
 .mod-NM:hover {
-    box-shadow: -15px 0 0 #DDDDDD;
+    box-shadow: -15px 0 0 #6fa8dc;
 }
 
 .mod-HD {
-    box-shadow: -10px 0 0 #6e4cbc;
+    box-shadow: -10px 0 0 #ffd966;
 }
 
 .mod-HD:hover {
-    box-shadow: -15px 0 0 #6e4cbc;
+    box-shadow: -15px 0 0 #ffd966;
 }
 
 
 .mod-HR {
-    box-shadow: -10px 0 0 #c81d1d;
+    box-shadow: -10px 0 0 #e06666;
 }
 
 .mod-HR:hover {
-    box-shadow: -15px 0 0 #c81d1d;
+    box-shadow: -15px 0 0 #e06666;
 }
 
 .mod-DT {
-    box-shadow: -10px 0 0 #529827;
+    box-shadow: -10px 0 0 #8e7cc3;
 }
 
 .mod-DT:hover {
-    box-shadow: -15px 0 0 #529827;
+    box-shadow: -15px 0 0 #8e7cc3;
 }
 
 .mod-FM {
-    box-shadow: -10px 0 0 #a502b1;
+    box-shadow: -10px 0 0 #93c47d;
 }
 
 .mod-FM:hover {
-    box-shadow: -15px 0 0 #a502b1;
+    box-shadow: -15px 0 0 #93c47d;
 }
 
 .mod-TB {
-    box-shadow: -10px 0 0 #ff5700;
+    box-shadow: -10px 0 0 #999999;
 }
 
 .mod-TB:hover {
-    box-shadow: -15px 0 0 #ff5700;
+    box-shadow: -15px 0 0 #999999;
 }
