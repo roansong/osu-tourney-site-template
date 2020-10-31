@@ -1,11 +1,27 @@
 from django.db import models
 from django.db.models import PROTECT, DO_NOTHING
 
+MOD_ORDER = {
+    'NM': 1,
+    'HD': 2,
+    'HR': 3,
+    'DT': 4,
+    'FM': 5,
+    'TB': 6
+}
+
 
 class MapPool(models.Model):
     name = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True, null=True)
     download_url = models.URLField(null=True, blank=True)
+
+    @property
+    def beatmaps(self):
+        return sorted(
+            [beatmap.apply_mod() for beatmap in self.beatmap_set.all()],
+            key=lambda x: MOD_ORDER[x.mod]
+        )
 
 
 class Beatmap(models.Model):

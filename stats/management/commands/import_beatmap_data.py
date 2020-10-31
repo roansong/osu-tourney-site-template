@@ -13,10 +13,13 @@ MODS = {
     'HD': 8,
     'HR': 16,
     'DT': 64,
+    'FM': 0,
+    'TB': 0,
 }
 
 DOWNLOAD_LINKS = {
-    'Qualifiers': "https://www.dropbox.com/s/yk4lfta72l6nhtl/OPTQualifiers.rar?dl=1"
+    'Qualifiers': "https://www.dropbox.com/s/yk4lfta72l6nhtl/OPTQualifiers.rar?dl=1",
+    'Round of 16': "https://www.dropbox.com/s/7xgofk99mx4kp93/OPT%20Round%20of%2016%20Mappool.zip?dl=1",
 }
 
 
@@ -35,25 +38,31 @@ class Command(BaseCommand):
             reader = csv.DictReader(csvfile, delimiter=',', quotechar='|')
             map_number = 1
             mod = ""
+            previous_pool = ""
             for row in reader:
-                if row['mod'] != mod:
+                if row['mod'] != mod or previous_pool != row['pool']:
                     map_number = 1
                 try:
-                    models.Beatmap.objects.get(ext_id=row['id'])
+                    beatmap = models.Beatmap.objects.get(ext_id=row['id'])
                 except models.Beatmap.DoesNotExist:
-                    mappool, _ = models.MapPool.objects.get_or_create(name=row['pool'], download_url=DOWNLOAD_LINKS[row['pool']])
                     params = {'k': settings.API_KEY, 'b': row['id']}
                     beatmap_obj = api_request('get_beatmaps', params)
                     beatmap = models.Beatmap.from_json(beatmap_obj)
-                    beatmap.mod = row['mod']
-                    beatmap.mappool = mappool
-                    beatmap.official = True
-                    beatmap.identifier = f"{beatmap.mod}{map_number}"
 
                     if row['mod'] in ['HR', 'DT']:
                         params['mods'] = MODS[row['mod']]
                         obj = api_request('get_beatmaps', params)
                         beatmap.difficultyrating = obj.get('difficultyrating')
+
+                beatmap.mod = row['mod']
+                beatmap.official = True
+                beatmap.identifier = f"{beatmap.mod}{map_number}"
+
+                mappool, _ = models.MapPool.objects.update_or_create(
+                    name=row['pool'], defaults={'download_url': DOWNLOAD_LINKS[row['pool']]}
+                )
+                beatmap.mappool = mappool
+                previous_pool = mappool.name
 
                 beatmap.save()
                 map_number += 1

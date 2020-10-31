@@ -151,3 +151,53 @@ a {
 .mod-TB:hover {
     box-shadow: -15px 0 0 #999999;
 }
+
+.footer {
+    margin: 25px auto;
+    color: white;
+    font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
+}
+
+.footer a {
+    color: #85baa1;
+}
+
+.collapsible {
+    background: none;
+    color: white;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+.active, .collapsible:hover {
+    color: lightgrey;
+}
+
+.collapsible:before {
+    color: white;
+    font-size: 16px;
+    float: left;
+    margin-right: 10px;
+    height: 50px;
+    width: 50px;
+    content: "";
+
+    background-image: url("/static/ozapt/images/pausechamp.png");
+    background-size: 50px 50px;
+
+}
+
+.active:before {
+    background-image: url("/static/ozapt/images/pogchamp.webp");
+    background-size: 250px 250px;
+    background-position-x: 120px;
+    background-position-y: 100px;
+}
+
+.content {
+    overflow: hidden;
+    padding: 0 25px;
+    max-height: 0;
+    transition: max-height 0.2s ease-out;
+}

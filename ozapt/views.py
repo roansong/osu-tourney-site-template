@@ -1,5 +1,4 @@
 from django.conf import settings
-from django.db.models import QuerySet
 from django.urls import reverse, NoReverseMatch
 from django.views.generic import TemplateView, ListView
 
@@ -57,29 +56,16 @@ class PlayersView(ListView):
         return users
 
 
-MOD_ORDER = {
-    'NM': 1,
-    'HD': 2,
-    'HR': 3,
-    'DT': 4,
-    'FM': 5,
-}
-
-
 class MapPoolView(ListView):
     template_name = "mappool.html"
     model = models.MapPool
-    context_object_name = 'mappool'
+    context_object_name = 'mappools'
 
     def get_queryset(self):
-        return models.MapPool.objects.all().order_by('-created_at').first()
+        return models.MapPool.objects.all().order_by('-created_at')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         add_nav_urls_to_context(context)
         context['maps'] = {}
-        context['beatmaps'] = sorted(
-            [beatmap.apply_mod() for beatmap in self.get_queryset().beatmap_set.all()],
-            key=lambda x: MOD_ORDER[x.mod]
-        )
         return context
