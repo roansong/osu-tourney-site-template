@@ -11,7 +11,7 @@
 .mappool-header {
     font-size: 50px;
     font-weight: 700;
-    color: white;
+    color: #ffffff;
     margin-bottom: 30px;
     font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
 }
@@ -168,10 +168,6 @@ a {
     cursor: pointer;
     border: none;
     outline: none;
-}
-
-.active, .collapsible:hover {
-    color: lightgrey;
 }
 
 .collapsible:before {

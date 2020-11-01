@@ -1,0 +1,18 @@
+.content-box {
+    display: grid;
+    grid-template-columns: 1fr 8fr 1fr;
+    margin-top: 10px;
+    gap: 10px;
+}
+
+.middle-column-box {
+    grid-column: 2 / 3;
+    display: grid;
+}
+
+.bracket-header {
+    font-size: 50px;
+    font-weight: 700;
+    color: #ffffff;
+    font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
+}

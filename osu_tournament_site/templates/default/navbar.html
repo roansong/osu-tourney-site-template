@@ -68,6 +68,10 @@
                 <li class="header-bullet"><img alt="Bullet point" src="{% static "osu_tournament_site/images/bullet.png" %}"/></li>
                 <li class="header-item"><a href="{{ players_url }}">Players</a></li>
             {% endif %}
+            {% if bracket_url %}
+                <li class="header-bullet"><img alt="Bullet point" src="{% static "osu_tournament_site/images/bullet.png" %}"/></li>
+                <li class="header-item"><a href="{{ bracket_url }}">Bracket</a></li>
+            {% endif %}
             <li class="header-bullet"><img alt="Bullet point" src="{% static "osu_tournament_site/images/bullet.png" %}"/></li>
             <li class="header-item header-image"><a target="_blank" href="https://discord.gg/eMhKcP7"><img alt="Discord" height="45px" src="{% static 'ozapt/images/discord.svg' %}"/></a></li>
         </ul>

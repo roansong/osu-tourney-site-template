@@ -1,0 +1,25 @@
+{% extends "default/index.html" %}
+{% load static %}
+{% load humanize %}
+{% block head %}
+    <title>osu!za Private Tournament</title>
+    <link rel="stylesheet" href="{% static 'ozapt/styles.css' %}"/>
+    <link rel="stylesheet" href="{% static 'ozapt/bracket.css' %}"/>
+{% endblock head %}
+{% block body %}
+    <div class="content-box">
+        <div class="content-body middle-column-box">
+            <div style="display: flex">
+            <div class="bracket-header">Tournament Bracket</div>
+            <a href="https://challonge.com/4v95i0ej" target="_blank" style="margin-left: 15px">
+                <img width="50px" height="50px" src="{% static 'ozapt/images/challonge.svg' %}" alt="challonge"/>
+            </a>
+                </div>
+            <iframe src="https://challonge.com/4v95i0ej/module"
+                    width="100%" height="1000" style="border:0;overflow: auto;margin-top: 25px"
+                    allowtransparency="true">
+            </iframe>
+        </div>
+    </div>
+
+{% endblock body %}
