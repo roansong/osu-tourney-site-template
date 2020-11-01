@@ -14,7 +14,32 @@
     font-size: 18px;
     font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
 }
+.rules-box .rules-table {
+    font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
+    text-align: left;
+    font-size: 14px;
+    border: 1px solid white;
+    border-collapse: collapse;
+    margin-bottom: 10px;
+    border-right: none;
+    border-left: none;
+    width: 100%;
+}
 
+.rules-table th {
+    padding: 5px;
+    border: 1px solid white;
+    border-collapse: collapse;
+    border-right: none;
+    border-left: none;
+}
+.rules-table td {
+    padding: 5px;
+    border: 1px solid white;
+    border-collapse: collapse;
+    border-right: none;
+    border-left: none;
+}
 .content-body div {
     padding: 10px 50px;
     color: lightgrey;
