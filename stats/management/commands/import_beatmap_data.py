@@ -18,7 +18,7 @@ MODS = {
 }
 
 DOWNLOAD_LINKS = {
-    'Qualifiers': "",
+    'Qualifiers': "http://www.mediafire.com/file/0m2n26wid8941ze/FCWDT_Qualifiers.rar/file",
 }
 
 
