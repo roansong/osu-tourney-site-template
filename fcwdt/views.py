@@ -5,8 +5,8 @@ from django.views.generic import TemplateView, ListView
 from osu_tournament_site.utils import template_exists
 from stats import models
 
-INDEX_TEMPLATE_NAME = "index.html"
-ABOUT_TEMPLATE_NAME = "about.html"
+INDEX_TEMPLATE_NAME = "fcwdt/index.html"
+ABOUT_TEMPLATE_NAME = "fcwdt/about.html"
 
 
 def add_nav_urls_to_context(context):
@@ -41,7 +41,7 @@ class IndexView(TemplateView):
 
 
 class PlayersView(ListView):
-    template_name = "players.html"
+    template_name = "fcwdt/players.html"
     context_object_name = "players"
     object = models.User
 
@@ -58,7 +58,7 @@ class PlayersView(ListView):
 
 
 class MapPoolView(ListView):
-    template_name = "mappool.html"
+    template_name = "fcwdt/mappool.html"
     model = models.MapPool
     context_object_name = 'mappools'
 
@@ -73,7 +73,16 @@ class MapPoolView(ListView):
 
 
 class BracketView(TemplateView):
-    template_name = "bracket.html"
+    template_name = "fcwdt/bracket.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        add_nav_urls_to_context(context)
+        return context
+
+
+class AboutView(TemplateView):
+    template_name = "fcwdt/about.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

@@ -27,7 +27,7 @@ SECRET_KEY = os.getenv("SECRET_KEY", "blahblahblah")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DEBUG", "").lower() != "false"
 
-ALLOWED_HOSTS = ["ozapt.herokuapp.com", "127.0.0.1"]
+ALLOWED_HOSTS = ["fcwdt.herokuapp.com", "127.0.0.1"]
 
 # Application definition
 
@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "ozapt",
+    "fcwdt",
     "stats",
 ]
 
@@ -131,4 +131,4 @@ API_KEY = os.environ.get('API_KEY')
 
 HOME_URL = "/"
 ABOUT_URL = SCHEDULE_URL = TEAMS_URL = PLAYERS_URL = MAPPOOL_URL = BRACKET_URL = ""
-MASTER_SHEET_URL = "https://docs.google.com/spreadsheets/d/1-ZD85wK7QFSiMDrHTdWwM9AM-YTpQHp-bYzU7fnmvMQ/edit?usp=sharing"
+MASTER_SHEET_URL = "https://docs.google.com/spreadsheets/d/1xQSIans8Z_kt2kSX_oEPVKmSy3neOAdDF5A9rkqvqcQ/edit#gid=22913425"

@@ -18,8 +18,7 @@ MODS = {
 }
 
 DOWNLOAD_LINKS = {
-    'Qualifiers': "https://www.dropbox.com/s/yk4lfta72l6nhtl/OPTQualifiers.rar?dl=1",
-    'Round of 16': "https://www.dropbox.com/s/7xgofk99mx4kp93/OPT%20Round%20of%2016%20Mappool.zip?dl=1",
+    'Qualifiers': "",
 }
 
 
@@ -59,7 +58,7 @@ class Command(BaseCommand):
                 beatmap.identifier = f"{beatmap.mod}{map_number}"
 
                 mappool, _ = models.MapPool.objects.update_or_create(
-                    name=row['pool'], defaults={'download_url': DOWNLOAD_LINKS[row['pool']]}
+                    name=row['pool'], defaults={'download_url': DOWNLOAD_LINKS.get(row['pool'])}
                 )
                 beatmap.mappool = mappool
                 previous_pool = mappool.name

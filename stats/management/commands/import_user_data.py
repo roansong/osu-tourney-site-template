@@ -1,3 +1,4 @@
+import csv
 import os
 
 from django.conf import settings
@@ -16,19 +17,22 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
 
-        with open(os.path.join(settings.BASE_DIR, 'stats/playerlist.txt')) as f:
-            user_ids = [line.strip() for line in f.readlines()]
+        with open(os.path.join(settings.BASE_DIR, 'stats/playerlist.csv'), newline='') as csvfile:
+            reader = csv.DictReader(csvfile, delimiter=',', quotechar='|')
 
-        print(f"Registered users: {len(user_ids)}")
+            if options['clean']:
+                models.User.objects.all().delete()
 
-        if options['clean']:
-            models.User.objects.all().delete()
+            for row in reader:
+                user_id = row['id']
+                print(f"Processing user ID: {user_id}")
+                try:
+                    user = models.User.objects.get(ext_id=user_id)
+                except models.User.DoesNotExist:
+                    user_obj = api_request('get_user', {'k': settings.API_KEY, 'u': user_id, 'type': 'id'})
+                    user = models.User.from_json(user_obj)
 
-        for user_id in user_ids:
-            print(f"Processing user ID: {user_id}")
-            try:
-                models.User.objects.get(ext_id=user_id)
-            except models.User.DoesNotExist:
-                user_obj = api_request('get_user', {'k': settings.API_KEY, 'u': user_id, 'type': 'id'})
-                models.User.from_json(user_obj).save()
-
+                if row['division']:
+                    division, _ = models.Division.objects.get_or_create(name=row['division'])
+                    user.division = division
+                user.save()

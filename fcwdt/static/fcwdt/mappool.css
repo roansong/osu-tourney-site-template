@@ -159,7 +159,8 @@ a {
 }
 
 .footer a {
-    color: #85baa1;
+    color: #1e3427;
+    font-weight: 700;
 }
 
 .collapsible {
@@ -179,16 +180,6 @@ a {
     width: 50px;
     content: "";
 
-    background-image: url("/static/ozapt/images/pausechamp.png");
-    background-size: 50px 50px;
-
-}
-
-.active:before {
-    background-image: url("/static/ozapt/images/pogchamp.webp");
-    background-size: 250px 250px;
-    background-position-x: 120px;
-    background-position-y: 100px;
 }
 
 .content {

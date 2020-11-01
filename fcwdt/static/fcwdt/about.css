@@ -1,0 +1,32 @@
+.content-box {
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    margin-top: 10px;
+    gap: 10px;
+}
+.rules-box {
+    background-color: #243c49;
+    margin: 10px 30px;
+}
+
+.rules-box .rules-subheading {
+    font-weight: 700;
+    font-size: 18px;
+    font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
+}
+
+.content-body div {
+    padding: 10px 50px;
+    color: lightgrey;
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+.content-body h1 {
+    padding: 10px 30px;
+}
+
+.middle-column-box {
+    grid-column: 2 / 3;
+    display: grid;
+}
