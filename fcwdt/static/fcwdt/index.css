@@ -1,6 +1,12 @@
 .content-box {
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr 8fr;
     margin-top: 10px;
     gap: 10px;
+}
+
+.left-column-box a {
+    text-align: left;
+    font-size: 35px;
+    padding-top: 30px;
 }

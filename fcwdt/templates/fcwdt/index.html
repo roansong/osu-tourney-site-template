@@ -1,14 +1,25 @@
 {% extends "fcwdt/base.html" %}
 {% load static %}
 {% block head %}
-    <title>Freezing Cold Winter Days Tournament</title>
+    <title>Freezy Cold Winter Days Tournament</title>
     <link rel="stylesheet" href="{% static 'fcwdt/styles.css' %}"/>
     <link rel="stylesheet" href="{% static 'fcwdt/index.css' %}"/>
 {% endblock head %}
 {% block body %}
 
     <div class="content-box">
+        <div class="content-body left-column-box">
+        </div>
+        <div class="content-body left-column-box" style="background-color: #243c49">
+        </div>
+        <div class="content-body left-column-box" style="background-color: #84b4ca">
+        </div>
 
+        <div class="right-column">
+            <div class="content-body">
+                <img alt="Freezy Cold Winter Days Tournament Banner" width="100%" height="100%" src="{% static 'fcwdt/images/freezy-banner.png' %}"/>
+            </div>
+        </div>
     </div>
 
 {% endblock body %}
