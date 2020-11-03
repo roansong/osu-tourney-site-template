@@ -19,18 +19,27 @@
                                 <img alt="{{ player.username }}'s avatar" title="{{ player.username }}'s avatar"
                                      src="{{ player.avatar_url }}"/>
                             </span>
-                            <span class="player-card-name">
-                                {{ player.username }}
-                            </span>
+
                             <span class="player-card-flag">
                                 <img src="{{ player.flag_url }}" alt="{{ player.country }} flag"
                                      title="{{ player.country }}"/>
                             </span>
-                            <span class="player-card-stats">
-                                Country: #{{ player.country_rank }} | Global: #{{ player.global_rank|intcomma }}
-                                <br />
-                                {{ player.chosen_class }}
+
+                            <span class="player-card-name">
+                                {{ player.username }}
                             </span>
+
+                            <div class="player-card-stats">
+                                <div style="text-align: right">
+                                    #{{ player.country_rank }} {{ player.country }}
+                                </div>
+                                <div style="text-align: right">
+                                    #{{ player.global_rank|intcomma }} Global
+                                </div>
+                                <div style="text-align: right">
+                                    {{ player.chosen_class }}
+                                </div>
+                            </div>
 
                         </li>
                     </a>
