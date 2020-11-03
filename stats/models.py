@@ -133,6 +133,7 @@ class User(models.Model):
     country_rank = models.IntegerField()
     global_rank = models.IntegerField()
     division = models.ForeignKey(Division, on_delete=PROTECT, null=True)
+    chosen_class = models.TextField(null=True, blank=True)
 
     @classmethod
     def from_json(cls, obj: dict):

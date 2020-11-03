@@ -35,4 +35,6 @@ class Command(BaseCommand):
                 if row['division']:
                     division, _ = models.Division.objects.get_or_create(name=row['division'])
                     user.division = division
+
+                user.chosen_class = row['class']
                 user.save()

@@ -16,19 +16,21 @@
                         <li class="player-card">
                             <span class="player-tournament-rank">#{{ forloop.counter }}</span>
                             <span class="player-card-avatar">
-                            <img alt="{{ player.username }}'s avatar" title="{{ player.username }}'s avatar"
-                                 src="{{ player.avatar_url }}"/>
-                        </span>
+                                <img alt="{{ player.username }}'s avatar" title="{{ player.username }}'s avatar"
+                                     src="{{ player.avatar_url }}"/>
+                            </span>
                             <span class="player-card-name">
-                            {{ player.username }}
-                        </span>
+                                {{ player.username }}
+                            </span>
                             <span class="player-card-flag">
-                            <img src="{{ player.flag_url }}" alt="{{ player.country }} flag"
-                                 title="{{ player.country }}"/>
-                        </span>
+                                <img src="{{ player.flag_url }}" alt="{{ player.country }} flag"
+                                     title="{{ player.country }}"/>
+                            </span>
                             <span class="player-card-stats">
-                            Country: #{{ player.country_rank }} | Global: #{{ player.global_rank|intcomma }}
-                        </span>
+                                Country: #{{ player.country_rank }} | Global: #{{ player.global_rank|intcomma }}
+                                <br />
+                                {{ player.chosen_class }}
+                            </span>
 
                         </li>
                     </a>
