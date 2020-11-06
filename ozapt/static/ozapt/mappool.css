@@ -210,6 +210,10 @@ a {
     transition: ease-out 0.2s;
 }
 
+.copy:hover {
+    color: #7289DA;
+}
+
 .hidden {
     opacity: 0;
     visibility: hidden;
