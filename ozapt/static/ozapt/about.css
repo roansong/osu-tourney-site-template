@@ -1,0 +1,101 @@
+.content-box {
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    margin-top: 10px;
+    gap: 10px;
+}
+
+.rules-text {
+    margin-bottom: 30px;
+    font-size: 18px;
+    line-height: 1.8;
+    padding: 10px 50px;
+}
+
+.rules-box {
+    background-color: #2c2f33;
+    margin: 10px 30px;
+    padding: 10px 50px;
+    color: #e3e3e3;
+}
+
+.rules-box .rules-subheading {
+    font-weight: 700;
+    font-size: 18px;
+    font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
+}
+
+.schedule-box {
+    background-color: #2c2f33;
+    margin: 10px 30px;
+    padding: 10px 50px 30px 50px;
+    color: #e3e3e3;
+}
+
+.schedule-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.schedule-item a {
+    color: #7289DA;
+    text-decoration: underline #7289DA;
+}
+
+.rules-box a {
+    color: #7289DA;
+    text-decoration: underline #7289DA;
+}
+
+.schedule-date {
+    font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    text-decoration: underline #7289DA;
+}
+
+.rules-box .rules-table {
+    font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
+    text-align: left;
+    font-size: 14px;
+    border: 1px solid white;
+    border-collapse: collapse;
+    margin-bottom: 10px;
+    border-right: none;
+    border-left: none;
+    width: 100%;
+}
+
+.rules-table th {
+    padding: 5px;
+    border: 1px solid white;
+    border-collapse: collapse;
+    border-right: none;
+    border-left: none;
+}
+
+.rules-table td {
+    padding: 5px;
+    border: 1px solid white;
+    border-collapse: collapse;
+    border-right: none;
+    border-left: none;
+}
+
+/*.content-body div {*/
+/*    padding: 10px 50px;*/
+/*    color: #e3e3e3;*/
+/*}*/
+
+.content-body h1 {
+    padding: 10px 30px;
+}
+
+.middle-column-box {
+    grid-column: 2 / 3;
+    display: grid;
+}

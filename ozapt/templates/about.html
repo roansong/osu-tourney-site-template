@@ -1,0 +1,231 @@
+{% extends "default/index.html" %}
+{% load static %}
+{% block head %}
+    <title>osu!za Private Tournament</title>
+    <link rel="stylesheet" target="_blank" href="{% static 'ozapt/styles.css' %}"/>
+    <link rel="stylesheet" target="_blank" href="{% static 'ozapt/about.css' %}"/>
+{% endblock head %}
+{% block body %}
+
+    <div class="content-box">
+        <div class="content-body middle-column-box">
+            <div class="rules-box">
+                <img width="100%" src="{% static 'ozapt/images/about.png' %}" alt="About"/>
+                <div class="rules-text">
+                    Good day, ladies and gents of osu!za. Phreel here with a huge project that I’ve been planning to do
+                    ever since the end of SAOT 2.
+                    Welcome to my private osu!za Tourney. Before we get into the rules, pools and schedules, have you
+                    ever wanted to participate in my showmatches but thought they weren’t inviting enough? Well, the
+                    time might have come for you to win! If there’s anything that you are unsure about
+                    <strong>AFTER</strong> reading the
+                    entire document, feel free to @ me in #tournaments.
+                </div>
+            </div>
+
+            <div class="rules-box">
+                <img width="100%" src="{% static 'ozapt/images/rules.png' %}" alt="Rules"/>
+                <div class="rules-text">
+                    <ol>
+                        <li>This is a 1v1 Double Elimination Tournament.</li>
+                        <li>Beatmap scoring is based on ScoreV2.
+                        </li>
+                        <li>RO16 and Quarter-Finals are both Best of 9. 9th round being the possible TieBreaker if the
+                            scores are 4-4. Exceptions are Semi-Finals, Finals and Grand-Finals where the matches are
+                            Best of 13.
+                        </li>
+                        <li>The beatmaps for each round will be announced by myself in advance before the actual matches
+                            take place.
+                        </li>
+                        <li>If the beatmap ends in a draw, the map will be nullified and replayed.</li>
+                        <li>Beatmaps cannot be reused in the same match unless the map was nullified.</li>
+                        <li>Lag is not a valid reason to nullify a beatmap.</li>
+                        <li>Disconnects within 30 seconds after beatmap begin can be aborted and/or rematched. This is
+                            up to the referee’s discretion though.
+                        </li>
+                        <li>The maximum time a scheduled match can be postponed is 10 minutes, after that the opposition
+                            would be awarded a default win.
+                        </li>
+                        <li>Rescheduling of matches must be done 24 hours prior to the match time and evidence of both
+                            players agreeing to the changes must be presented to the referee who was assigned to that
+                            match.
+                        </li>
+                        <li>All players are supposed to keep the match running fluently and without delays. Excessive
+                            match delays coming from the player’s side can be issued with penalties such as default win
+                            or loss.
+                        </li>
+                        <li>Disrupting the match by foul play, picking inappropriate warmup beatmaps, insulting and
+                            provoking other players or referees, delaying the match and other misbehavior is strictly
+                            prohibited.
+                        </li>
+                        <li>The multiplayer chatrooms are subject to the <a target="_blank"
+                                                                            href="https://osu.ppy.sh/help/wiki/Rules">osu!
+                            Community Rules.</a></li>
+                        <li>All players and referees must be treated with respect. Instructions of the referees and
+                            tournament management are to be followed. Decisions labelled as final are not to be
+                            objected.
+                        </li>
+                        <li>NoFail <strong>WILL</strong> be used on all maps with no score penalty.</li>
+                        <li>Players must pick at least one mod from the following list when playing FreeMod: HardRock
+                            (x1.1), Hidden (x1.06), FlashLight (x1.12), Easy (x0.5) or any of these combined.
+                        </li>
+                        <li>When playing the TieBreaker, mods are optional. Players may go NoMod or any mod listed for
+                            FreeMod.
+                        </li>
+                        <li>Players should do “!roll” right away before the warmups. Higher roll can choose to either
+                            pick first and ban next round or ban first and pick next round. The order of picking will
+                            depend on the choice of the higher roll. Both players can only ban 1 beatmap in the pools.
+                        </li>
+                        <li>No warmup picks will be played in the qualifiers. In bracket stages, 1 warmup pick, no
+                            longer than 4 minutes per player is permitted. If both player agree, warmups can be skipped.
+                        </li>
+                        <li>This tournament IS NOT restricted to South Africans only. Anyone can register if they joined
+                            the osu!za discord server before this announcement.
+                        </li>
+                        <li>The host and mappoolers cannot join the tournament as players.</li>
+                    </ol>
+                </div>
+            </div>
+            <div class="rules-box">
+                <img width="100%" src="{% static 'ozapt/images/match-procedures.png' %}" alt="Match Procedures"/>
+                <div class="rules-text">
+                    <ol>
+                        <li>Matches and Qualifiers would take place over the weekends from Friday to Sunday. Exceptions
+                            can be issued if emergencies happen ie. funeral, COVID-19, loadshedding or feeling ill in
+                            general.
+                        </li>
+                        <li>The tournament will start with RO16 (Round of 16).</li>
+                        <li><strong><u>To be eligible to register, your global rank has to be lower than 100k. Anyone
+                            below 100k can join up and compete.</u></strong></li>
+                        <li>All players would then be seeded and grouped according to their qualifiers results and 16
+                            players would proceed to the Round of 16.
+                        </li>
+                        <li>Since this is a double-elimination tournament, each player would have to have at least
+                            <strong>2 losses</strong> to get eliminated. Players who have lost a match would carry on
+                            playing in the Losers Bracket.
+                        </li>
+                        <li>When the Qualifiers are being played. Each map would be played <strong>ONCE</strong> in the
+                            order of NM -> HD -> HR -> DT.
+                        </li>
+                        <li>Maximum of 2 minutes (120 seconds) break is allowed between each map.</li>
+                        <li>If there are more than 16 players then Qualifier Lobbies with different time slots would be
+                            provided for them to attend. Players can choose whichever one that suits them best.
+                        </li>
+                        <li>A referee will invite the players into a lobby 5 minutes before the scheduled time. If you
+                            receive no invitation, then please try to contact the referee on discord. If contacting the
+                            referee fails then @ me.
+                        </li>
+                        <li>If your opponent did not show up 10 minutes after the schedule time for a match, a default
+                            win would be issued.
+                        </li>
+                        <li>If both players did not show up 10 minutes after the scheduled time for a match, the player
+                            with a higher qualifier seeding will advance. No rematches will be tolerated within the
+                            tournament.
+                        </li>
+                        <li>Maximum of 2 minutes (120 seconds) to ban/pick AND to READY up is allowed.</li>
+                        <li>There are no restrictions on the ban/picks. Bans can be placed in the same mod pool, and
+                            maps from the same mod pool can be picked after each other.
+                        </li>
+                        <li>The tournament as said above starts with RO16, proceeds with Quarter-Finals, Semi-Finals,
+                            Finals and Grand-Finals. All of these rounds will have their own pools.
+                        </li>
+                        <li>Last minute reschedules are not permitted UNLESS you have an emergency that you can prove.
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <div class="schedule-box">
+                <img width="100%" src="{% static 'ozapt/images/schedule.png' %}" alt="Schedule"/>
+                <div class="rules-text">
+                    Schedules are subject to change. I’ll keep everyone updated or will try to.
+                </div>
+                <div class="schedule-item">
+                    <div class="schedule-date">October 14th</div>
+                    <div>Registrations open</div>
+                </div>
+                <div class="schedule-item">
+                    <div class="schedule-date">October 24th</div>
+                    <div>Registrations close</div>
+                    <div>Qualifiers Mappool Showcase on <a target="_blank" href="https://twitch.tv/Phreel">twitch.tv/Phreel</a>
+                    </div>
+                </div>
+                <div class="schedule-item">
+                    <div class="schedule-date">October 30 - November 1</div>
+                    <div>Qualifiers</div>
+                    <div>9 maps - 3NM, 2HD, 2HR, 2DT</div>
+                    <div>no livestream</div>
+                </div>
+                <div class="schedule-item">
+                    <div class="schedule-date">November 6-8</div>
+                    <div>Round of 16 (15 maps - 5NM, 3HD, 3HR, 3DT, 1TB) and Quarter-Finals Mappool Showcase</div>
+                </div>
+                <div class="schedule-item">
+                    <div class="schedule-date">November 13-15</div>
+                    <div>Quarter-Finals & Losers Bracket</div>
+                    <div>17 maps - 6NM, 3HD, 3HR, 4DT, 1TB</div>
+                    <div>Semi-Finals Mappool Showcase</div>
+                </div>
+                <div class="schedule-item">
+                    <div class="schedule-date">November 20-22</div>
+                    <div>Semi-Finals & Losers Bracket</div>
+                    <div>20 maps - 6NM, 3HD, 3HR, 4DT, 3FM, 1TB</div>
+                    <div>Finals Mappool Showcase</div>
+                </div>
+                <div class="schedule-item">
+                    <div class="schedule-date">November 27-29</div>
+                    <div>Finals & Losers Bracket Finals</div>
+                    <div>20 maps - 6NM, 3HD, 3HR, 4DT, 3FM, 1TB</div>
+                    <div>Grand-Finals Mappool Showcase</div>
+                </div>
+                <div class="schedule-item">
+                    <div class="schedule-date">December 4-6</div>
+                    <div>Grand-Finals</div>
+                    <div>20 maps - 6NM, 3HD, 3HR, 4DT, 3FM, 1TB</div>
+                </div>
+            </div>
+            <div class="rules-box">
+                <img width="100%" src="{% static 'ozapt/images/links.png' %}" alt="Links"/>
+                <div class="rules-text">
+                    <ul>
+                        <li><a target="_blank" href="https://www.twitch.tv/Phreel">Twitch</a></li>
+                        <li>
+                            <a target="_blank"
+                               href="https://docs.google.com/spreadsheets/d/1-ZD85wK7QFSiMDrHTdWwM9AM-YTpQHp-bYzU7fnmvMQ/edit?usp=sharing">Mappools</a>
+                        </li>
+                        <li><a target="_blank" href="https://forms.gle/8SeGKRQhcJhWbJwC9">Mappool Feedback Form</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="rules-box">
+                <img width="100%" src="{% static 'ozapt/images/prizes.png' %}" alt="Prizes"/>
+                <div class="rules-text">
+                    This tournament is not worth stressing over since the grand prize is just a month of supporter.
+                    As there’s no direct way to donate to the prize pool, people who still want to raise the prize can
+                    do it in the form of steam gift cards, games or miscellaneous products.
+                </div>
+            </div>
+
+            <div class="rules-box">
+                <img width="100%" src="{% static 'ozapt/images/staff.png' %}" alt="Staff"/>
+                <div class="rules-text">
+                    <ul>
+                        <li><strong>Host:</strong> <a target="_blank" href="https://osu.ppy.sh/users/12840110">Phreel#8274</a>
+                        </li>
+                        <li><strong>Poolers:</strong> <a target="_blank" href="https://osu.ppy.sh/users/12840110">Phreel#8274</a>
+                            + 3
+                            precious people who have chosen to remain anonymous
+                        </li>
+                        <li><strong>Graphic Designer</strong>: <a target="_blank"
+                                                                  href="https://osu.ppy.sh/users/9616651">Misa#7905</a>
+                        </li>
+                        <li><strong>Referees:</strong> <a target="_blank" href="https://osu.ppy.sh/users/9676089">rock-on#9446</a>
+                            | <a
+                                    target="_blank" href="https://osu.ppy.sh/users/9987378">OverKurumi#1004</a> | <a
+                                    target="_blank" href="https://osu.ppy.sh/users/12840110">Phreel#8274</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock body %}
