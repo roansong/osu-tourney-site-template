@@ -64,6 +64,8 @@
                                     </div>
                                 </div>
                             </a>
+                        <i class="copy far fa-clipboard" data-beatmap-id="{{ beatmap.ext_id }}"></i>
+                        <div class="copy-success hidden">copied map ID!</div>
                         </div>
                     {% endfor %}
                 </div>
@@ -97,5 +99,27 @@
                 }
             });
         }
+    </script>
+    <script>
+        var elems = document.getElementsByClassName("copy");
+        var texts = document.getElementsByClassName("copy-success");
+        var i;
+        navigator.permissions.query({name: "clipboard-write"}).then(result => {
+            if (result.state === "granted" || result.state === "prompt") {
+                for (i = 0; i < elems.length; i++) {
+                    elems[i].addEventListener('click', function(e) {
+                        e.preventDefault();
+                        navigator.clipboard.writeText(this.dataset.beatmapId);
+                        var text = this.nextElementSibling;
+                        console.log(text)
+                        text.classList.remove('hidden');
+                        setTimeout(function() {
+                            text.classList.add('hidden')
+                        }, 1000)
+                    })
+
+                }
+            }
+        });
     </script>
 {% endblock body %}
