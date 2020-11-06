@@ -59,7 +59,7 @@ class Command(BaseCommand):
                 beatmap.identifier = f"{beatmap.mod}{map_number}"
 
                 mappool, _ = models.MapPool.objects.update_or_create(
-                    name=row['pool'], defaults={'download_url': DOWNLOAD_LINKS[row['pool']]}
+                    name=row['pool'], defaults={'download_url': DOWNLOAD_LINKS.get(row['pool'], '')}
                 )
                 beatmap.mappool = mappool
                 previous_pool = mappool.name

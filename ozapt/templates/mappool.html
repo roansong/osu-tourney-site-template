@@ -83,7 +83,7 @@
         var i;
 
         for (i = 0; i < coll.length; i++) {
-            if (i === 0) {
+            if (i <= 1) {
                 coll[i].nextElementSibling.style.maxHeight = coll[i].nextElementSibling.scrollHeight + "px";
                 coll[i].classList.add('active')
             }
