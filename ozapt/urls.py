@@ -6,4 +6,5 @@ urlpatterns = [
     path("players", views.PlayersView.as_view(), name="players"),
     path("mappool", views.MapPoolView.as_view(), name="mappool"),
     path("bracket", views.BracketView.as_view(), name="bracket"),
+    path("about", views.AboutView.as_view(), name="about"),
 ]
