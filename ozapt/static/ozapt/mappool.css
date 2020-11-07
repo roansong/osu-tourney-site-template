@@ -1,8 +1,3 @@
-.mappool, .mappool-wrapper {
-    display: flex;
-    justify-content: center;
-}
-
 .map-artist {
     font-size: 18px;
 }
@@ -66,12 +61,18 @@
     white-space: nowrap;
 }
 
+.mappool, .mappool-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .map {
     position: relative;
     display: grid;
     align-items: center;
     justify-items: center;
-    width: 100%;
+    max-width: 850px;
     height: 3em;
     padding: 17px;
     grid-template-columns: 2fr 1fr;
@@ -196,6 +197,7 @@ a {
     padding: 0 25px;
     max-height: 0;
     transition: max-height 0.2s ease-out;
+    max-width: 800px;
 }
 
 .copy {
