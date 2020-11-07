@@ -75,7 +75,7 @@
     max-width: 850px;
     height: 3em;
     padding: 17px;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 1fr 300px;
 }
 
 .map-wrapper {
