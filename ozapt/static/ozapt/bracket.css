@@ -1,6 +1,6 @@
 .content-box {
     display: grid;
-    grid-template-columns: 1fr 8fr 1fr;
+    grid-template-columns: 100px 1fr 100px;
     margin-top: 10px;
     gap: 10px;
 }

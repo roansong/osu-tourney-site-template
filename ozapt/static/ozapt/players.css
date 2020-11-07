@@ -6,7 +6,7 @@ h1 {
 
 .content-box {
     display: grid;
-    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-columns: 1fr 900px 1fr;
     margin-top: 10px;
     gap: 10px;
 }
