@@ -10,6 +10,7 @@
     font-size: 18px;
     line-height: 1.8;
     padding: 10px 50px;
+    font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
 }
 
 .rules-box {
@@ -17,6 +18,7 @@
     margin: 10px 30px;
     padding: 10px 50px;
     color: #e3e3e3;
+    font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
 }
 
 .rules-box .rules-subheading {
@@ -37,6 +39,7 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
 }
 
 .schedule-item a {
@@ -50,8 +53,8 @@
 }
 
 .schedule-date {
-    font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
-    font-size: 20px;
+    font-family: serif;
+    font-size: 25px;
     font-weight: bold;
     margin-bottom: 5px;
     margin-top: 10px;
