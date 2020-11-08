@@ -1,12 +1,23 @@
 .content-box {
     display: grid;
-    grid-template-columns: 1fr 8fr;
+    grid-template-columns: 300px 1fr;
     margin-top: 10px;
     gap: 10px;
 }
 
-.left-column-box a {
-    text-align: left;
-    font-size: 35px;
-    padding-top: 30px;
+.content-body {
+    background-color: #1D2830;
+    padding: 10px;
+}
+
+.left-column-box {
+    font-size: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
+    height: 140px;
+    margin-left: 10px;
 }
