@@ -1,6 +1,6 @@
 .content-box {
     display: grid;
-    grid-template-columns: 20px 400px 1fr 20px;
+    grid-template-columns: 20px 1fr 2fr 20px;
     margin-top: 10px;
     gap: 10px;
 }
@@ -18,8 +18,17 @@
     grid-column: 3;
 }
 
-.left-column-box a {
-    text-align: left;
-    font-size: 35px;
-    padding-top: 30px;
+a.left-column-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 4vw;
+    min-width: 400px;
+    margin-bottom: 10px;
+}
+
+a.left-column-box:last-child {
+    margin-bottom: 0;
 }
