@@ -1,6 +1,6 @@
 .content-box {
     display: grid;
-    grid-template-columns: 400px 1fr;
+    grid-template-columns: 1fr 400px 820px 1fr;
     grid-template-rows: 270px;
     margin-top: 10px;
     column-gap: 10px;
@@ -12,6 +12,7 @@
 }
 
 .left-column-box {
+    grid-column: 2;
     font-size: 40px;
     display: flex;
     flex-direction: column;
@@ -34,7 +35,7 @@ a.left-column-box:last-child {
 }
 
 .right-column {
-    grid-column: 2;
+    grid-column: 3;
     display: grid;
     margin-right: 30px;
 }
