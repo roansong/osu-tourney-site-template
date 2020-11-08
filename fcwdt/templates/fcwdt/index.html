@@ -8,29 +8,17 @@
 {% block body %}
 
     <div class="content-box">
-        <div class="left-column-box" style="margin: 0 0 0 10px;">
-            <a href="https://docs.google.com/spreadsheets/d/1xQSIans8Z_kt2kSX_oEPVKmSy3neOAdDF5A9rkqvqcQ/edit?usp=sharing"
-               target="_blank"
-               class="content-body left-column-box"
-               style="text-shadow: 2px 2px 0 #84b4ca;">
-                Spreadsheet
-            </a>
-            <a href="{% url 'about' %}"
-               class="content-body left-column-box"
-               style="background-color: #243c49; font-size: 70px; text-shadow: 4px 4px 0 #1D2830;">
-                Info
-            </a>
-            <a href="https://www.twitch.tv/robloxxa"
-               target="_blank"
-               class="content-body left-column-box"
-               style="background-color: #84b4ca; font-size: 70px; text-shadow: 4px 4px 0 #243c49;">
-                Twitch
-            </a>
+        <div class="content-body left-column-box">
+        </div>
+        <div class="content-body left-column-box" style="background-color: #243c49">
+        </div>
+        <div class="content-body left-column-box" style="background-color: #84b4ca">
         </div>
 
         <div class="right-column">
-            <img class="splash" alt="Freezy Cold Winter Days Tournament Banner"
-                 src="{% static 'fcwdt/images/freezy-banner.png' %}"/>
+            <div class="content-body">
+                <img alt="Freezy Cold Winter Days Tournament Banner" width="100%" height="auto" src="{% static 'fcwdt/images/freezy-banner.png' %}"/>
+            </div>
         </div>
     </div>
 
