@@ -1,7 +1,6 @@
 .content-box {
     display: grid;
-    grid-template-columns: 1fr 400px 820px 1fr;
-    grid-template-rows: 270px;
+    grid-template-columns: 1fr 400px 845px 1fr;
     margin-top: 10px;
     column-gap: 10px;
 }
