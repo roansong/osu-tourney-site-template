@@ -1,8 +1,9 @@
 .content-box {
     display: grid;
-    grid-template-columns: 300px 1fr;
+    grid-template-columns: 400px 1fr;
+    grid-template-rows: 270px;
     margin-top: 10px;
-    gap: 10px;
+    column-gap: 10px;
 }
 
 .content-body {
@@ -14,10 +15,33 @@
     font-size: 40px;
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
+}
+
+a.left-column-box {
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     font-weight: bold;
     font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
-    height: 140px;
-    margin-left: 10px;
+    margin-bottom: 10px;
+    min-height: 100px;
+}
+
+a.left-column-box:last-child {
+    margin-bottom: 0;
+}
+
+.right-column {
+    grid-column: 2;
+    display: grid;
+    margin-right: 30px;
+}
+
+img.splash {
+    width: 100%;
+    max-width: 820px;
+    height: auto;
+    border: 10px solid  #1D2830;
 }

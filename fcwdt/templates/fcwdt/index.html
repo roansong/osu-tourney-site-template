@@ -8,28 +8,29 @@
 {% block body %}
 
     <div class="content-box">
-        <a href="https://docs.google.com/spreadsheets/d/1xQSIans8Z_kt2kSX_oEPVKmSy3neOAdDF5A9rkqvqcQ/edit?usp=sharing"
-           target="_blank"
-           class="content-body left-column-box">
-            Spreadsheet
-        </a>
-        <a href="{% url 'about' %}"
-           class="content-body left-column-box"
-           style="background-color: #243c49; font-size: 70px">
-            Info
-        </a>
-        <a href="https://www.twitch.tv/robloxxa"
-           target="_blank"
-           class="content-body left-column-box"
-           style="background-color: #84b4ca; font-size: 70px">
-            Twitch
-        </a>
+        <div class="left-column-box" style="margin: 0 0 0 10px;">
+            <a href="https://docs.google.com/spreadsheets/d/1xQSIans8Z_kt2kSX_oEPVKmSy3neOAdDF5A9rkqvqcQ/edit?usp=sharing"
+               target="_blank"
+               class="content-body left-column-box"
+               style="text-shadow: 2px 2px 0 #84b4ca;">
+                Spreadsheet
+            </a>
+            <a href="{% url 'about' %}"
+               class="content-body left-column-box"
+               style="background-color: #243c49; font-size: 70px; text-shadow: 4px 4px 0 #1D2830;">
+                Info
+            </a>
+            <a href="https://www.twitch.tv/robloxxa"
+               target="_blank"
+               class="content-body left-column-box"
+               style="background-color: #84b4ca; font-size: 70px; text-shadow: 4px 4px 0 #243c49;">
+                Twitch
+            </a>
+        </div>
 
-        <div class="right-column" style="margin-right: 10px;">
-            <div class="content-body">
-                <img alt="Freezy Cold Winter Days Tournament Banner" width="100%" height="100%"
-                     src="{% static 'fcwdt/images/freezy-banner.png' %}"/>
-            </div>
+        <div class="right-column">
+            <img class="splash" alt="Freezy Cold Winter Days Tournament Banner"
+                 src="{% static 'fcwdt/images/freezy-banner.png' %}"/>
         </div>
     </div>
 
