@@ -29,12 +29,21 @@
         vertical-align: baseline;
     }
     body {
-        background-image: url("{% static "osu_tournament_site/images/bg.png" %}");
+        background-color: #070812;
         background-attachment: fixed;
         background-size: cover;
         background-position: center;
     }
 </style>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var img = new Image();
+        img.src = "{% static "osu_tournament_site/images/bg.png" %}";
+        img.onload = function() {
+            document.body.style.backgroundImage = `url(${this.src})`;
+        }
+    })
+</script>
 {% block nav %}
     {% include "default/navbar.html" %}
 {% endblock nav %}
