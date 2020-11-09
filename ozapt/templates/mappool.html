@@ -11,17 +11,20 @@
     {% for mappool in mappools %}
         <div class="mappool-wrapper">
             <div class="mappool">
-                <button class="mappool-header collapsible">
-                    {{ mappool.name }} Pool
+                <div style="display: flex">
+                    <button class="mappool-header collapsible">
+                        {{ mappool.name }} Pool
+                    </button>
                     {% if mappool.download_url %}
-                        <a download href="{{ mappool.download_url }}" style="margin-left: 10px">
+                        <a download href="{{ mappool.download_url }}" style="margin-left: 10px" class="mappool-header">
                             <i class="fas fa-cloud-download-alt"></i>
                         </a>
                     {% endif %}
-                    <a target="_blank" href="{{ master_sheet_url }}">
+                    <a target="_blank" href="{{ master_sheet_url }}" style="margin-left: 10px" class="mappool-header">
                         <i class="far fa-file-excel"></i>
                     </a>
-                </button>
+                </div>
+
                 <div class="maps content">
                     {% for beatmap in mappool.beatmaps %}
                         <div class="map-wrapper mod-{{ beatmap.mod }}">
@@ -80,17 +83,18 @@
 
     <script>
         var coll = document.getElementsByClassName("collapsible");
+        var maps = document.getElementsByClassName("maps");
         var i;
 
         for (i = 0; i < coll.length; i++) {
-            if (i <= 1) {
-                coll[i].nextElementSibling.style.maxHeight = coll[i].nextElementSibling.scrollHeight + "px";
+            if (i === 0) {
+                maps[i].style.maxHeight = maps[i].scrollHeight + "px";
                 coll[i].classList.add('active')
             }
             coll[i].addEventListener("click", function () {
                 this.classList.toggle("active");
                 console.log("clicked");
-                var content = this.nextElementSibling;
+                var content = this.parentElement.nextElementSibling;
                 console.log(content);
                 if (content.style.maxHeight) {
                     content.style.maxHeight = null;
