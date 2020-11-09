@@ -1,12 +1,24 @@
 .content-box {
     display: grid;
-    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-columns: 1fr 900px 1fr;
     margin-top: 10px;
     gap: 10px;
 }
+
+.rules-text {
+    margin-bottom: 30px;
+    font-size: 18px;
+    line-height: 1.8;
+    padding: 10px 50px;
+    font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
+}
+
 .rules-box {
     background-color: #243c49;
     margin: 10px 30px;
+    padding: 10px 50px;
+    color: #e3e3e3;
+    font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
 }
 
 .rules-box .rules-subheading {
@@ -14,6 +26,41 @@
     font-size: 18px;
     font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
 }
+
+.schedule-box {
+    background-color: #243c49;
+    margin: 10px 30px;
+    padding: 10px 50px 30px 50px;
+    color: #e3e3e3;
+}
+
+.schedule-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
+}
+
+.schedule-item a {
+    color: #84b4ca;
+    text-decoration: underline #84b4ca;
+}
+
+.rules-box a {
+    color: #84b4ca;
+    text-decoration: underline #84b4ca;
+}
+
+.schedule-date {
+    font-family: serif;
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    text-decoration: underline #7289DA;
+}
+
 .rules-box .rules-table {
     font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
     text-align: left;
@@ -33,18 +80,13 @@
     border-right: none;
     border-left: none;
 }
+
 .rules-table td {
     padding: 5px;
     border: 1px solid white;
     border-collapse: collapse;
     border-right: none;
     border-left: none;
-}
-.content-body div {
-    padding: 10px 50px;
-    color: lightgrey;
-    font-size: 16px;
-    line-height: 1.4;
 }
 
 .content-body h1 {

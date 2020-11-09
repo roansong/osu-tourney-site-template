@@ -29,12 +29,21 @@
         vertical-align: baseline;
     }
     body {
-        background-image: url("{% static "fcwdt/images/bg.jpg" %}");
+        background-color: #243c49;
         background-attachment: fixed;
         background-size: cover;
         background-position: center;
     }
 </style>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const img = new Image();
+        img.src = "{% static "fcwdt/images/bg.jpg" %}";
+        img.onload = function() {
+            document.body.style.backgroundImage = `url(${this.src})`;
+        }
+    })
+</script>
 {% block nav %}
     {% include "fcwdt/navbar.html" %}
 {% endblock nav %}
