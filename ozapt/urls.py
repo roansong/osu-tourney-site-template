@@ -7,4 +7,5 @@ urlpatterns = [
     path("mappool", views.MapPoolView.as_view(), name="mappool"),
     path("bracket", views.BracketView.as_view(), name="bracket"),
     path("about", views.AboutView.as_view(), name="about"),
+    path("stats", views.StatsView.as_view(), name="stats"),
 ]

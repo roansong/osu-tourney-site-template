@@ -22,6 +22,7 @@ class Command(BaseCommand):
         print(f"Registered users: {len(user_ids)}")
 
         if options['clean']:
+            models.Score.objects.all().delete()
             models.User.objects.all().delete()
 
         for user_id in user_ids:

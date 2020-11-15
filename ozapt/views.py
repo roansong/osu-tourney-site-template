@@ -23,6 +23,7 @@ def add_nav_urls_to_context(context):
     exc(settings.TEAMS_URL, "teams")
     exc(settings.PLAYERS_URL, "players")
     exc(settings.BRACKET_URL, "bracket")
+    exc(None, "stats")
     context['master_sheet_url'] = settings.MASTER_SHEET_URL
 
 
@@ -83,6 +84,15 @@ class BracketView(TemplateView):
 
 class AboutView(TemplateView):
     template_name = "about.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        add_nav_urls_to_context(context)
+        return context
+
+
+class StatsView(TemplateView):
+    template_name = "stats.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
