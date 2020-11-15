@@ -2,7 +2,7 @@ import sys
 
 from django.db.models import Avg
 
-from stats.models import Score, User, Beatmap, Match
+from stats.models import Score, User, Beatmap, Match, Game
 
 
 def get_highest_score(mod=None):
@@ -28,14 +28,40 @@ def get_highest_avg_score():
     }
 
 
+def get_closest_map():
+    min_diff = sys.maxsize
+    beatmap = user1 = user2 = None
+
+    for game in Game.objects.filter(beatmap__official=True):
+        if not game.score_set.exists():
+            continue
+        score1 = game.score_set.first()
+        score2 = game.score_set.last()
+        score_diff = abs(score1.score - score2.score)
+        if score_diff < min_diff:
+            min_diff = score_diff
+            user1 = score1.user
+            user2 = score2.user
+            beatmap = game.beatmap
+
+    if not beatmap:
+        return {}
+
+    return {
+        'user1': user1,
+        'user2': user2,
+        'score_difference': int(min_diff),
+        'beatmap': beatmap
+    }
+
+
 def get_closest_match(stomp=False):
     min_diff = sys.maxsize
     max_diff = 0
-    min_match = None
-    max_match = None
+    min_match = max_match = None
     for match in Match.objects.filter(qualifier=False):
         diffs = []
-        for game in match.game_set.filter():
+        for game in match.game_set.filter(beatmap__official=True):
             if not game.score_set.exists():
                 continue
             score1 = game.score_set.first()

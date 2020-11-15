@@ -105,5 +105,6 @@ class StatsView(TemplateView):
         context['highest_hr_score'] = api.get_highest_score(mod="HR")
         context['highest_dt_score'] = api.get_highest_score(mod="DT")
         context['closest_match'] = api.get_closest_match()
+        context['closest_map'] = api.get_closest_map()
         context['biggest_stomp'] = api.get_biggest_stomp()
         return context

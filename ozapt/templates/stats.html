@@ -65,6 +65,25 @@
                 <div class="stat-card-footer"></div>
             </div>
 
+            <div class="stat-card player-vs-stat-card">
+                <div class="stat-card-title">Closest map</div>
+                <div class="stat-card-player-avatar" style="background-image: url('{{ closest_map.user1.avatar_url }}');">
+                    <div class="stat-card-player-name">{{ closest_map.user1.username }}</div>
+                </div>
+                <div class="stat-card-player-vs-additional">
+                    <div>Score difference</div>
+                    <div>{{ closest_map.score_difference|intcomma }} pts</div>
+                </div>
+                <div class="stat-card-player-avatar-2" style="background-image: url('{{ closest_map.user2.avatar_url }}');">
+                    <div class="stat-card-player-name">{{ closest_map.user2.username }}</div>
+                </div>
+                <div class="stat-card-map-info" style="background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)) center bottom / cover, url('{{ closest_map.beatmap.cover_url }}');">
+                    <div class="moving-text">
+                        {{ closest_map.beatmap.identifier }} - {{ closest_map.beatmap.artist }} - {{ closest_map.beatmap.title }} [{{ closest_map.beatmap.version }}]
+                    </div>
+                </div>
+            </div>
+
             <div class="stat-card player-stat-card">
                 <div class="stat-card-title">Highest NoMod score</div>
                 <div class="stat-card-player-avatar" style="background-image: url('{{ highest_nm_score.user.avatar_url }}');">
