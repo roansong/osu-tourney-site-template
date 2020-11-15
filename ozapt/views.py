@@ -4,6 +4,7 @@ from django.views.generic import TemplateView, ListView
 
 from osu_tournament_site.utils import template_exists
 from stats import models
+from stats import api
 
 INDEX_TEMPLATE_NAME = "index.html"
 ABOUT_TEMPLATE_NAME = "about.html"
@@ -97,4 +98,12 @@ class StatsView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         add_nav_urls_to_context(context)
+        context['highest_score'] = api.get_highest_score()
+        context['highest_avg_score'] = api.get_highest_avg_score()
+        context['highest_nm_score'] = api.get_highest_score(mod="NM")
+        context['highest_hd_score'] = api.get_highest_score(mod="HD")
+        context['highest_hr_score'] = api.get_highest_score(mod="HR")
+        context['highest_dt_score'] = api.get_highest_score(mod="DT")
+        context['closest_match'] = api.get_closest_match()
+        context['biggest_stomp'] = api.get_biggest_stomp()
         return context

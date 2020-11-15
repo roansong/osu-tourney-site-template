@@ -112,7 +112,7 @@ class Beatmap(models.Model):
         return f"https://osu.ppy.sh/beatmaps/{self.ext_id}"
 
     @property
-    def cover(self):
+    def cover_url(self):
         return f"https://assets.ppy.sh/beatmaps/{self.beatmapset_id}/covers/cover.jpg"
 
     @property
@@ -208,3 +208,7 @@ class Score(models.Model):
     def acc(self):
         return 100 * (self.count_300 * 300 + self.count_100 * 100 + self.count_50 * 50) / (
                 (self.count_300 + self.count_100 + self.count_50 + self.count_miss) * 300)
+
+    @property
+    def beatmap(self):
+        return self.game.beatmap
