@@ -53,10 +53,9 @@
         <ul id="nav" class="header">
             <li class="header-item header-image"><a href="{{ home_url }}"><img src="{% static 'ozapt/images/logo.png' %}" alt="osu!za logo"/></a></li>
             <li class="header-item"><h2>osu!za Private Tournament</h2></li>
-            <li class="header-item"><a href="{{ home_url }}">Home</a></li>
             {% if about_url %}
                 <li class="header-bullet"><img alt="Bullet point" src="{% static "osu_tournament_site/images/bullet.png" %}"/></li>
-                <li class="header-item"><a href="{{ about_url }}">About</a></li>
+                <li class="header-item"><a href="{{ about_url }}">Info</a></li>
             {% endif %}
             {% if mappool_url %}
                 <li class="header-bullet"><img alt="Bullet point" src="{% static "osu_tournament_site/images/bullet.png" %}"/></li>
