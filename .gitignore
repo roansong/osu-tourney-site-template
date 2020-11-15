@@ -8,3 +8,4 @@ staticfiles
 !staticfiles/.keep
 ignore/
 .env
+*.iml
