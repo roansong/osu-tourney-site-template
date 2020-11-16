@@ -107,4 +107,5 @@ class StatsView(TemplateView):
         context['closest_match'] = api.get_closest_match()
         context['closest_map'] = api.get_closest_map()
         context['biggest_stomp'] = api.get_biggest_stomp()
+        context['highest_combo'] = api.get_highest_combo()
         return context

@@ -2,7 +2,7 @@ import sys
 
 from django.db.models import Avg
 
-from stats.models import Score, User, Beatmap, Match, Game
+from stats.models import Score, User, Beatmap, Match, Game, MapPool
 
 
 def get_highest_score(mod=None):
@@ -25,6 +25,15 @@ def get_highest_avg_score():
     return {
         'user': query,
         'score': int(query.avg_score),
+    }
+
+
+def get_highest_combo():
+    score = Score.objects.filter(game__beatmap__official=True).order_by('-max_combo').first()
+    return {
+        'user': score.user,
+        'combo': int(score.max_combo),
+        'beatmap': score.beatmap
     }
 
 
@@ -95,3 +104,10 @@ def get_closest_match(stomp=False):
 
 def get_biggest_stomp():
     return get_closest_match(stomp=True)
+
+
+def get_beatmap_picks():
+    for pool in MapPool.objects.all():
+        print(pool.name)
+        for beatmap in sorted(pool.beatmaps, key=lambda x: x.game_set.count(), reverse=True)[:3]:
+            print(f'{beatmap.identifier} | {beatmap.game_set.count()} | {beatmap.display_title}')

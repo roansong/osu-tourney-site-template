@@ -35,6 +35,21 @@
                 <div class="stat-card-footer"></div>
             </div>
 
+            <div class="stat-card player-stat-card">
+                <div class="stat-card-title">Highest combo achieved</div>
+                <div class="stat-card-player-avatar" style="background-image: url('{{ highest_combo.user.avatar_url }}');">
+                    <div class="stat-card-player-name">{{ highest_combo.user.username }}</div>
+                </div>
+                <div class="stat-card-player-additional" style="font-size: 45px">
+                    {{ highest_combo.combo|intcomma }}x
+                </div>
+                <div class="stat-card-map-info" style="background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)) center bottom / cover, url('{{ highest_combo.beatmap.cover_url }}');">
+                    <div class="moving-text">
+                        {{ highest_combo.beatmap.identifier }} - {{ highest_combo.beatmap.artist }} - {{ highest_combo.beatmap.title }} [{{ highest_combo.beatmap.version }}]
+                    </div>
+                </div>
+            </div>
+
             <div class="stat-card player-vs-stat-card">
                 <div class="stat-card-title">Closest match</div>
                 <div class="stat-card-player-avatar" style="background-image: url('{{ closest_match.user1.avatar_url }}');">
