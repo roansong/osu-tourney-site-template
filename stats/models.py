@@ -144,6 +144,9 @@ class User(models.Model):
             country=obj.get('country'),
         )
 
+    def __str__(self):
+        return self.username
+
     @property
     def profile_url(self):
         return f"https://osu.ppy.sh/users/{self.ext_id}"
