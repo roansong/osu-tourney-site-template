@@ -20,7 +20,7 @@ class MapPool(models.Model):
     def beatmaps(self):
         return sorted(
             [beatmap.apply_mod() for beatmap in self.beatmap_set.all()],
-            key=lambda x: (MOD_ORDER[x.mod], x.mod)
+            key=lambda x: (MOD_ORDER[x.mod], x.identifier)
         )
 
 
