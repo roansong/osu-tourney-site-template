@@ -22,6 +22,7 @@ DOWNLOAD_LINKS = {
     'Round of 16': "https://www.dropbox.com/s/7xgofk99mx4kp93/OPT%20Round%20of%2016%20Mappool.zip?dl=1",
     'Quarter Finals': "https://www.dropbox.com/s/meov2219wq7623r/QuarterFinalsPool.zip?dl=1",
     'Semi Finals': "https://www.dropbox.com/s/plmq8fszs3k1hmv/SemiFinalsMappool.zip?dl=1",
+    'Finals': "https://www.dropbox.com/s/f5mu2ygwn78m184/OPTFINALSPool.zip?dl=1",
 }
 
 
