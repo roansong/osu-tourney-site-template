@@ -80,6 +80,7 @@
 
 .map-wrapper {
     margin-bottom: 5px;
+    position: relative;
 }
 
 .map-left, .map-right {
@@ -159,7 +160,7 @@ a {
 }
 
 .footer a {
-    color: #1e3427;
+    color: #b113a4;
     font-weight: 700;
 }
 
@@ -187,4 +188,15 @@ a {
     padding: 0 25px;
     max-height: 0;
     transition: max-height 0.2s ease-out;
+}
+
+.copy {
+    color: white;
+    z-index: 998;
+    position: absolute;
+    top: 13px;
+    left: 75px;
+    font-size: 18px;
+    padding: 5px;
+    font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
 }
