@@ -9,43 +9,46 @@
 {% block body %}
     <div class="content-box">
         <div class="content-body middle-column-box">
-            <h1>Players</h1>
-            <ul class="player-list">
-                {% for player in players %}
-                    <a target="_blank" href="{{ player.profile_url }}">
-                        <li class="player-card">
-                            <span class="player-tournament-rank">#{{ forloop.counter }}</span>
-                            <span class="player-card-avatar">
+            {% for division in divisions %}
+                <h1 class="division-header">{{ division.name }}</h1>
+                <ul class="player-list">
+                    {% for player in division.players %}
+                        <a target="_blank" href="{{ player.profile_url }}">
+                            <li class="player-card">
+                                <span class="player-tournament-rank">#{{ forloop.counter }}</span>
+                                <span class="player-card-avatar">
                                 <img alt="{{ player.username }}'s avatar" title="{{ player.username }}'s avatar"
                                      src="{{ player.avatar_url }}"/>
                             </span>
 
-                            <span class="player-card-flag">
+                                <span class="player-card-flag">
                                 <img src="{{ player.flag_url }}" alt="{{ player.country }} flag"
                                      title="{{ player.country }}"/>
                             </span>
 
-                            <span class="player-card-name">
+                                <span class="player-card-name">
                                 {{ player.username }}
                             </span>
 
-                            <div class="player-card-stats">
-                                <div style="text-align: right">
-                                    #{{ player.country_rank }} {{ player.country }}
+                                <div class="player-card-stats">
+                                    <div style="text-align: right">
+                                        #{{ player.country_rank }} {{ player.country }}
+                                    </div>
+                                    <div style="text-align: right">
+                                        #{{ player.global_rank|intcomma }} Global
+                                    </div>
+                                    <div style="text-align: right">
+                                        {{ player.chosen_class }}
+                                    </div>
                                 </div>
-                                <div style="text-align: right">
-                                    #{{ player.global_rank|intcomma }} Global
-                                </div>
-                                <div style="text-align: right">
-                                    {{ player.chosen_class }}
-                                </div>
-                            </div>
 
-                        </li>
-                    </a>
-                {% endfor %}
-            </ul>
+                            </li>
+                        </a>
+                    {% endfor %}
+                </ul>
+            {% endfor %}
         </div>
+
 
     </div>
 

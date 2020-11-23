@@ -48,6 +48,10 @@ class PlayersView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         add_nav_urls_to_context(context)
+        context["divisions"] = [{
+            "name": division.name,
+            "players": division.user_set.order_by("username")
+        } for division in models.Division.objects.all().order_by("name")]
         return context
 
     def get_queryset(self):
