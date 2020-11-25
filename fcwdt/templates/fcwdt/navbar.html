@@ -18,6 +18,7 @@
         margin: auto 14px;
         display: flex;
     }
+
     .header-image img {
         margin-top: 2px;
         width: 43px;
@@ -32,48 +33,117 @@
         height: 4px;
     }
 
-    .header h2,a{
+    .header h2, a {
         text-decoration: none;
         color: white;
         font-family: "Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
     }
+
     .header .header-item a:hover {
         cursor: pointer;
+    }
+
+    .dropbtn {
+        background: none;
+        color: white;
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+    }
+
+    /* The container <div> - needed to position the dropdown content */
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    /* Dropdown Content (Hidden by Default) */
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        min-width: 200px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+    }
+
+    /* Links inside the dropdown */
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+    /* Change color of dropdown links on hover */
+    .dropdown-content a:hover {
+        background-color: #ddd;
+    }
+
+    /* Show the dropdown menu on hover */
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    /* Change the background color of the dropdown button when the dropdown content is shown */
+    .dropdown:hover .dropbtn {
+        background-color: rgba(132, 180, 202, 0.4);
     }
 </style>
 
 <div class="grid-container">
     <nav>
         <ul id="nav" class="header">
-            <li class="header-item header-image"><a href="{{ home_url }}"><img src="{% static 'fcwdt/images/snowflake.webp' %}" alt="Freezy Cold Winter Days Tournament logo"/></a></li>
+            <li class="header-item header-image"><a href="{{ home_url }}"><img
+                    src="{% static 'fcwdt/images/snowflake.webp' %}" alt="Freezy Cold Winter Days Tournament logo"/></a>
+            </li>
             <li class="header-item"><h2>Freezy Cold Winter Days</h2></li>
             <li class="header-item"><a href="{{ home_url }}">Home</a></li>
             {% if about_url %}
-                <li class="header-bullet"><img alt="Bullet point" src="{% static "osu_tournament_site/images/bullet.png" %}"/></li>
+                <li class="header-bullet"><img alt="Bullet point"
+                                               src="{% static "osu_tournament_site/images/bullet.png" %}"/></li>
                 <li class="header-item"><a href="{{ about_url }}">Info</a></li>
             {% endif %}
             {% if mappool_url %}
-                <li class="header-bullet"><img alt="Bullet point" src="{% static "osu_tournament_site/images/bullet.png" %}"/></li>
-                <li class="header-item"><a href="{{ mappool_url }}">Mappool</a></li>
+                <li class="header-bullet"><img alt="Bullet point"
+                                               src="{% static "osu_tournament_site/images/bullet.png" %}"/></li>
+                <li class="header-item">
+                    <div class="dropdown">
+                        <button class="dropbtn">Mappools</button>
+                        <div class="dropdown-content">
+                            {% for division in divisions %}
+                                {% for mappool in division.mappools.all %}
+                                    <a href="{% url 'division_mappool' division.id mappool.id %}">{{ division.name }}
+                                        | {{ mappool.name }}</a>
+                                {% endfor %}
+                            {% endfor %}
+                            <a href="{{ mappool_url }}">All</a>
+                        </div>
+                    </div>
+                </li>
             {% endif %}
             {% if schedule_url %}
-                <li class="header-bullet"><img alt="Bullet point" src="{% static "osu_tournament_site/images/bullet.png" %}"/></li>
+                <li class="header-bullet"><img alt="Bullet point"
+                                               src="{% static "osu_tournament_site/images/bullet.png" %}"/></li>
                 <li class="header-item"><a href="{{ schedule_url }}">Schedule</a></li>
             {% endif %}
             {% if teams_url %}
-                <li class="header-bullet"><img alt="Bullet point" src="{% static "osu_tournament_site/images/bullet.png" %}"/></li>
+                <li class="header-bullet"><img alt="Bullet point"
+                                               src="{% static "osu_tournament_site/images/bullet.png" %}"/></li>
                 <li class="header-item"><a href="{{ teams_url }}">Teams</a></li>
             {% endif %}
             {% if players_url %}
-                <li class="header-bullet"><img alt="Bullet point" src="{% static "osu_tournament_site/images/bullet.png" %}"/></li>
+                <li class="header-bullet"><img alt="Bullet point"
+                                               src="{% static "osu_tournament_site/images/bullet.png" %}"/></li>
                 <li class="header-item"><a href="{{ players_url }}">Players</a></li>
             {% endif %}
             {% if bracket_url %}
-                <li class="header-bullet"><img alt="Bullet point" src="{% static "osu_tournament_site/images/bullet.png" %}"/></li>
+                <li class="header-bullet"><img alt="Bullet point"
+                                               src="{% static "osu_tournament_site/images/bullet.png" %}"/></li>
                 <li class="header-item"><a href="{{ bracket_url }}">Bracket</a></li>
             {% endif %}
-{#            <li class="header-bullet"><img alt="Bullet point" src="{% static "osu_tournament_site/images/bullet.png" %}"/></li>#}
-{#            <li class="header-item header-image"><a target="_blank" href="https://discord.gg/eMhKcP7"><img alt="Discord" height="45px" src="{% static 'fcwdt/images/discord.svg' %}"/></a></li>#}
+            {#            <li class="header-bullet"><img alt="Bullet point" src="{% static "osu_tournament_site/images/bullet.png" %}"/></li>#}
+            {#            <li class="header-item header-image"><a target="_blank" href="https://discord.gg/eMhKcP7"><img alt="Discord" height="45px" src="{% static 'fcwdt/images/discord.svg' %}"/></a></li>#}
         </ul>
     </nav>
 </div>

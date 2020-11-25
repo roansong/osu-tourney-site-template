@@ -67,6 +67,7 @@ class Command(BaseCommand):
                     division, _ = models.Division.objects.get_or_create(name=row['division'])
                     division.mappools.add(mappool)
                     division.save()
+                    beatmap.division = division
 
                 beatmap.save()
                 map_number += 1

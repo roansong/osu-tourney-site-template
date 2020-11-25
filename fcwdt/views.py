@@ -1,6 +1,7 @@
 from django.conf import settings
+from django.forms import model_to_dict
 from django.urls import reverse, NoReverseMatch
-from django.views.generic import TemplateView, ListView
+from django.views.generic import TemplateView, ListView, DetailView
 
 from osu_tournament_site.utils import template_exists
 from stats import models
@@ -24,6 +25,7 @@ def add_nav_urls_to_context(context):
     exc(settings.PLAYERS_URL, "players")
     exc(settings.BRACKET_URL, "bracket")
     context['master_sheet_url'] = settings.MASTER_SHEET_URL
+    context['divisions'] = models.Division.objects.all().order_by('name')
 
 
 class IndexView(TemplateView):
@@ -70,17 +72,14 @@ class MapPoolView(ListView):
         sdfh = []
         for mappool in models.MapPool.objects.all().order_by('-created_at'):
             divisions = []
-
             for division in mappool.division_set.all():
                 divisions.append(
                     {"name": division.name,
-                     "beatmaps": mappool.beatmap_set.filter(
-                         mappool__division=division
-                     ).order_by("identifier")}
+                     "beatmaps": mappool.beatmap_set.filter(division=division).order_by("identifier")}
                 )
             sdfh.append({
-                "name": mappool.name,
-                "download_url": mappool.download_url,
+                **model_to_dict(mappool),
+                "beatmaps": mappool.beatmaps,
                 "divisions": divisions
             })
         return sdfh
@@ -88,6 +87,29 @@ class MapPoolView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         add_nav_urls_to_context(context)
+        return context
+
+
+class DivisionMapPoolView(DetailView):
+    template_name = "fcwdt/division_mappool.html"
+    model = models.Division
+    context_object_name = 'division'
+    pk_url_kwarg = "division_id"
+
+    def get_object(self, *args, **kwargs):
+        return models.Division.objects.get(pk=self.kwargs[self.pk_url_kwarg], mappools__id=self.kwargs["mappool_id"])
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        add_nav_urls_to_context(context)
+        context["mappools"] = []
+        for mappool in self.object.mappools.all().order_by("created_at"):
+            context["mappools"].append({
+                **model_to_dict(mappool),
+                "beatmaps": mappool.beatmap_set.filter(division=self.object).order_by("identifier")
+            })
+        from pprint import pprint
+        pprint(context["mappools"])
         return context
 
 

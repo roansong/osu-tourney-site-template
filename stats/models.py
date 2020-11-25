@@ -53,6 +53,7 @@ class Beatmap(models.Model):
     mod = models.CharField(max_length=2, blank=True, null=True)
     mappool = models.ForeignKey(MapPool, null=True, on_delete=DO_NOTHING)
     identifier = models.TextField(null=True, blank=True)
+    division = models.ForeignKey(Division, null=True, on_delete=DO_NOTHING)
 
     @classmethod
     def from_json(cls, obj: dict):
