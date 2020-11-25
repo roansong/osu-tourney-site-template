@@ -63,6 +63,11 @@ class Command(BaseCommand):
                 beatmap.mappool = mappool
                 previous_pool = mappool.name
 
+                if row['division']:
+                    division, _ = models.Division.objects.get_or_create(name=row['division'])
+                    division.mappools.add(mappool)
+                    division.save()
+
                 beatmap.save()
                 map_number += 1
                 mod = row['mod']

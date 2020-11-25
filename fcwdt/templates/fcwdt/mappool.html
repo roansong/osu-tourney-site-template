@@ -8,9 +8,11 @@
     <script src="https://kit.fontawesome.com/fd151f38bf.js" crossorigin="anonymous"></script>
 {% endblock head %}
 {% block body %}
-    {% for mappool in mappools %}
-        <div class="mappool-wrapper">
-            <div class="mappool">
+
+    <div class="mappool-wrapper">
+
+        <div class="mappool">
+            {% for mappool in mappools %}
                 <button class="mappool-header collapsible">
                     {{ mappool.name }} Pool
                     {% if mappool.download_url %}
@@ -22,60 +24,64 @@
                         <i class="far fa-file-excel"></i>
                     </a>
                 </button>
-                <div class="maps content">
-                    {% for beatmap in mappool.beatmaps %}
-                        <div class="map-wrapper mod-{{ beatmap.mod }}">
-                            <a href="{{ beatmap.url }}" target="_blank">
-                                <div class="map"
-                                     style="background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)) center bottom / cover, url({{ beatmap.cover }});">
-                                    <div class="map-left">
-                                        <div class="map-identifier">{{ beatmap.identifier }}</div>
-                                        <div class="map-artist">{{ beatmap.artist }}</div>
-                                        <div class="map-title">{{ beatmap.title }}</div>
+
+                {% for division in mappool.divisions %}
+                    <h1>{{ division.name }}</h1>
+                    <div class="maps content">
+                        {% for beatmap in division.beatmaps %}
+                            <div class="map-wrapper mod-{{ beatmap.mod }}">
+                                <a href="{{ beatmap.url }}" target="_blank">
+                                    <div class="map"
+                                         style="background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)) center bottom / cover, url({{ beatmap.cover }});">
+                                        <div class="map-left">
+                                            <div class="map-identifier">{{ beatmap.identifier }}</div>
+                                            <div class="map-artist">{{ beatmap.artist }}</div>
+                                            <div class="map-title">{{ beatmap.title }}</div>
+                                        </div>
+                                        <div class="map-right">
+                                            <div class="diff-wrapper">
+                                                <div class="map-diff">[{{ beatmap.version }}</div>
+                                                <div class="map-diff" style="overflow: unset;">]</div>
+                                            </div>
+                                            <div class="map-specs">
+                                                <div class="map-time">
+                                                    <img src="{% static 'fcwdt/images/time.png' %}">
+                                                    {{ beatmap.length_format }}
+                                                </div>
+                                                <div class="map-bpm">
+                                                    <img src="{% static 'fcwdt/images/bpm.png' %}">
+                                                    {{ beatmap.bpm|floatformat:0 }}</div>
+                                                <div class="map-stars">
+                                                    <img src="{% static 'fcwdt/images/star.png' %}">
+                                                    {{ beatmap.difficultyrating|floatformat:2 }}
+                                                </div>
+                                            </div>
+                                            <div class="map-specs">
+                                                <div class="map-cs">
+                                                    CS {{ beatmap.diff_size|floatformat:1 }}
+                                                </div>
+
+                                                <div class="map-ar">
+                                                    AR {{ beatmap.diff_approach|floatformat:1 }}
+                                                </div>
+
+                                                <div class="map-od">
+                                                    OD {{ beatmap.diff_overall|floatformat:1 }}
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="map-right">
-                                        <div class="diff-wrapper">
-                                            <div class="map-diff">[{{ beatmap.version }}</div>
-                                            <div class="map-diff" style="overflow: unset;">]</div>
-                                        </div>
-                                        <div class="map-specs">
-                                            <div class="map-time">
-                                                <img src="{% static 'fcwdt/images/time.png' %}">
-                                                {{ beatmap.length_format }}
-                                            </div>
-                                            <div class="map-bpm">
-                                                <img src="{% static 'fcwdt/images/bpm.png' %}">
-                                                {{ beatmap.bpm|floatformat:0 }}</div>
-                                            <div class="map-stars">
-                                                <img src="{% static 'fcwdt/images/star.png' %}">
-                                                {{ beatmap.difficultyrating|floatformat:2 }}
-                                            </div>
-                                        </div>
-                                        <div class="map-specs">
-                                            <div class="map-cs">
-                                                CS {{ beatmap.diff_size|floatformat:1 }}
-                                            </div>
+                                </a>
+                                <div class="copy">[{{ beatmap.ext_id }}]</div>
+                            </div>
+                        {% endfor %}
+                    </div>
 
-                                            <div class="map-ar">
-                                                AR {{ beatmap.diff_approach|floatformat:1 }}
-                                            </div>
-
-                                            <div class="map-od">
-                                                OD {{ beatmap.diff_overall|floatformat:1 }}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                            <div class="copy">[{{ beatmap.ext_id }}]</div>
-                        </div>
-                    {% endfor %}
-                </div>
-
-            </div>
-            </div>
+                {% endfor %}
+            {% endfor %}
         </div>
-    {% endfor %}
+
+    </div>
     <div style="display: flex">
         <div class="footer">
             Thanks for the mappool inspiration, <a target="_blank" href="http://vinxis.moe/">VINXIS</a>

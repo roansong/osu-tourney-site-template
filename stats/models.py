@@ -24,6 +24,11 @@ class MapPool(models.Model):
         )
 
 
+class Division(models.Model):
+    name = models.CharField(unique=True, max_length=25)
+    mappools = models.ManyToManyField(MapPool)
+
+
 class Beatmap(models.Model):
     ext_id = models.CharField(max_length=25, unique=True)
     beatmapset_id = models.CharField(max_length=25)
@@ -120,10 +125,6 @@ class Beatmap(models.Model):
         minutes = self.total_length // 60
         seconds = self.total_length % 60
         return f"{minutes}:{seconds:02}"
-
-
-class Division(models.Model):
-    name = models.CharField(unique=True, max_length=25)
 
 
 class User(models.Model):

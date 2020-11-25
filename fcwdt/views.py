@@ -67,12 +67,27 @@ class MapPoolView(ListView):
     context_object_name = 'mappools'
 
     def get_queryset(self):
-        return models.MapPool.objects.all().order_by('-created_at')
+        sdfh = []
+        for mappool in models.MapPool.objects.all().order_by('-created_at'):
+            divisions = []
+
+            for division in mappool.division_set.all():
+                divisions.append(
+                    {"name": division.name,
+                     "beatmaps": mappool.beatmap_set.filter(
+                         mappool__division=division
+                     ).order_by("identifier")}
+                )
+            sdfh.append({
+                "name": mappool.name,
+                "download_url": mappool.download_url,
+                "divisions": divisions
+            })
+        return sdfh
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         add_nav_urls_to_context(context)
-        context['maps'] = {}
         return context
 
 

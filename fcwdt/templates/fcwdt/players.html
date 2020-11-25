@@ -15,7 +15,7 @@
                     {% for player in division.players %}
                         <a target="_blank" href="{{ player.profile_url }}">
                             <li class="player-card">
-                                <span class="player-tournament-rank">#{{ forloop.counter }}</span>
+{#                                <span class="player-tournament-rank">#{{ forloop.counter }}</span>#}
                                 <span class="player-card-avatar">
                                 <img alt="{{ player.username }}'s avatar" title="{{ player.username }}'s avatar"
                                      src="{{ player.avatar_url }}"/>

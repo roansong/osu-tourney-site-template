@@ -186,7 +186,7 @@ a {
 .content {
     overflow: hidden;
     padding: 0 25px;
-    max-height: 0;
+    /*max-height: 0;*/
     transition: max-height 0.2s ease-out;
 }
 
