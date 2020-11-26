@@ -5,6 +5,7 @@ from django.views.generic import TemplateView, ListView, DetailView
 
 from osu_tournament_site.utils import template_exists
 from stats import models
+from stats.models import MOD_ORDER
 
 INDEX_TEMPLATE_NAME = "fcwdt/index.html"
 ABOUT_TEMPLATE_NAME = "fcwdt/about.html"
@@ -75,7 +76,7 @@ class MapPoolView(ListView):
             for division in mappool.division_set.all():
                 divisions.append(
                     {"name": division.name,
-                     "beatmaps": mappool.beatmap_set.filter(division=division).order_by("identifier")}
+                     "beatmaps": sorted(list(mappool.beatmap_set.filter(division=division)), key=lambda x: (MOD_ORDER[x.mod], x.identifier))}
                 )
             sdfh.append({
                 **model_to_dict(mappool),
@@ -106,7 +107,7 @@ class DivisionMapPoolView(DetailView):
         for mappool in self.object.mappools.all().order_by("created_at"):
             context["mappools"].append({
                 **model_to_dict(mappool),
-                "beatmaps": mappool.beatmap_set.filter(division=self.object).order_by("identifier")
+                "beatmaps": sorted(list(mappool.beatmap_set.filter(division=self.object)), key=lambda x: (MOD_ORDER[x.mod], x.identifier))
             })
         from pprint import pprint
         pprint(context["mappools"])
