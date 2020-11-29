@@ -23,6 +23,7 @@ DOWNLOAD_LINKS = {
     'Quarter Finals': "https://www.dropbox.com/s/meov2219wq7623r/QuarterFinalsPool.zip?dl=1",
     'Semi Finals': "https://www.dropbox.com/s/plmq8fszs3k1hmv/SemiFinalsMappool.zip?dl=1",
     'Finals': "https://www.dropbox.com/s/f5mu2ygwn78m184/OPTFINALSPool.zip?dl=1",
+    'Grand Finals': "https://www.dropbox.com/s/8gvzfqrq9t6opog/OPTGRANDFINALSPOOL.zip?dl=1",
 }
 
 
