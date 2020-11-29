@@ -76,7 +76,8 @@ class MapPoolView(ListView):
             for division in mappool.division_set.all():
                 divisions.append(
                     {"name": division.name,
-                     "beatmaps": sorted(list(mappool.beatmap_set.filter(division=division)), key=lambda x: (MOD_ORDER[x.mod], x.identifier))}
+                     "beatmaps": sorted(list(mappool.beatmap_set.filter(division=division)),
+                                        key=lambda x: (MOD_ORDER[x.mod], x.identifier))}
                 )
             sdfh.append({
                 **model_to_dict(mappool),
@@ -103,14 +104,12 @@ class DivisionMapPoolView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         add_nav_urls_to_context(context)
-        context["mappools"] = []
-        for mappool in self.object.mappools.all().order_by("created_at"):
-            context["mappools"].append({
-                **model_to_dict(mappool),
-                "beatmaps": sorted(list(mappool.beatmap_set.filter(division=self.object)), key=lambda x: (MOD_ORDER[x.mod], x.identifier))
-            })
-        from pprint import pprint
-        pprint(context["mappools"])
+        mappool = self.object.mappools.get(pk=self.kwargs["mappool_id"])
+        context["mappool"] = {
+            **model_to_dict(mappool),
+            "beatmaps": sorted(list(mappool.beatmap_set.filter(division=self.object)),
+                               key=lambda x: (MOD_ORDER[x.mod], x.identifier))
+        }
         return context
 
 
