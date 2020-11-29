@@ -74,6 +74,7 @@
     align-items: center;
     justify-items: center;
     width: 100%;
+    max-width: 850px;
     height: 3em;
     padding: 17px;
     grid-template-columns: 2fr 1fr;
