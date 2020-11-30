@@ -28,6 +28,10 @@ class Division(models.Model):
     name = models.CharField(unique=True, max_length=25)
     mappools = models.ManyToManyField(MapPool)
 
+    @property
+    def players(self):
+        return self.user_set.order_by("username")
+
 
 class Beatmap(models.Model):
     ext_id = models.CharField(max_length=25, unique=True)
