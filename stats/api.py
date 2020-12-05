@@ -77,6 +77,8 @@ def get_closest_match(stomp=False):
             score2 = game.score_set.last()
             diff = abs(score2.score - score1.score)
             diffs.append(diff)
+        if not diffs:
+            continue
         average = sum(diffs) / len(diffs)
 
         if average > max_diff:
