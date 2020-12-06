@@ -71,11 +71,13 @@ class MapPoolView(ListView):
         for mappool in models.MapPool.objects.all().order_by('-created_at'):
             divisions = []
             for division in mappool.division_set.all():
-                divisions.append(
-                    {"name": division.name,
-                     "beatmaps": sorted(list(mappool.beatmap_set.filter(division=division)),
-                                        key=lambda x: (MOD_ORDER[x.mod], x.identifier))}
-                )
+                divisions.append({
+                    "name": division.name,
+                    "beatmaps": sorted(
+                        [beatmap.apply_mod() for beatmap in mappool.beatmap_set.filter(division=division)],
+                        key=lambda x: (MOD_ORDER[x.mod], x.identifier)
+                    )
+                })
             sdfh.append({
                 **model_to_dict(mappool),
                 "beatmaps": mappool.beatmaps,
@@ -104,8 +106,10 @@ class DivisionMapPoolView(DetailView):
         mappool = self.object.mappools.get(pk=self.kwargs["mappool_id"])
         context["mappool"] = {
             **model_to_dict(mappool),
-            "beatmaps": sorted(list(mappool.beatmap_set.filter(division=self.object)),
-                               key=lambda x: (MOD_ORDER[x.mod], x.identifier))
+            "beatmaps": sorted(
+                [beatmap.apply_mod() for beatmap in mappool.beatmap_set.filter(division=self.object)],
+                key=lambda x: (MOD_ORDER[x.mod], x.identifier)
+            )
         }
         return context
 
