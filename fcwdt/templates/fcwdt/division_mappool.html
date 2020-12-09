@@ -14,8 +14,8 @@
             <h1 class="mappool-header">{{ division.name }}</h1>
             <button class="mappool-header collapsible">
                 {{ mappool.name }} Pool
-                {% if mappool.download_url %}
-                    <a download href="{{ mappool.download_url }}" style="margin-left: 10px">
+                {% if division_pool_download_url %}
+                    <a download href="{{ division_pool_download_url }}" style="margin-left: 10px">
                         <i class="fas fa-cloud-download-alt"></i>
                     </a>
                 {% endif %}

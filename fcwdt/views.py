@@ -10,6 +10,13 @@ from stats.models import MOD_ORDER
 INDEX_TEMPLATE_NAME = "fcwdt/index.html"
 ABOUT_TEMPLATE_NAME = "fcwdt/about.html"
 
+DOWNLOAD_LINKS = {
+    "Semi Finals": {
+        "Div1": "http://www.mediafire.com/file/athzo95m5n1o0b1/Div1+SemiFinals.rar/file",
+        "Div2": "http://www.mediafire.com/file/o8yplohp8byg0e0/Div2+SemiFinals.rar/file"
+    }
+}
+
 
 def add_nav_urls_to_context(context):
     def exc(setting, name):
@@ -111,6 +118,7 @@ class DivisionMapPoolView(DetailView):
                 key=lambda x: (MOD_ORDER[x.mod], x.identifier)
             )
         }
+        context["division_pool_download_url"] = DOWNLOAD_LINKS.get(mappool.name, {}).get(self.object.name)
         return context
 
 
