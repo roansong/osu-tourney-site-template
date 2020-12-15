@@ -27,7 +27,7 @@ SECRET_KEY = os.getenv("SECRET_KEY", "blahblahblah")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DEBUG", "").lower() != "false"
 
-ALLOWED_HOSTS = ["fcwdt.herokuapp.com", "127.0.0.1"]
+ALLOWED_HOSTS = ["fcwdt.herokuapp.com", "127.0.0.1", "localhost"]
 
 # Application definition
 

@@ -39,6 +39,7 @@ class Command(BaseCommand):
             mod = ""
             previous_pool = ""
             for row in reader:
+                print(f"Importing beatmap {row['id']}")
                 if row['mod'] != mod or previous_pool != row['pool']:
                     map_number = 1
                 try:

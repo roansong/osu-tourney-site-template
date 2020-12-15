@@ -12,8 +12,12 @@ ABOUT_TEMPLATE_NAME = "fcwdt/about.html"
 
 DOWNLOAD_LINKS = {
     "Semi Finals": {
-        "Div1": "http://www.mediafire.com/file/athzo95m5n1o0b1/Div1+SemiFinals.rar/file",
-        "Div2": "http://www.mediafire.com/file/o8yplohp8byg0e0/Div2+SemiFinals.rar/file"
+        "Div1": "https://www.mediafire.com/file/athzo95m5n1o0b1/Div1+SemiFinals.rar/file",
+        "Div2": "https://www.mediafire.com/file/o8yplohp8byg0e0/Div2+SemiFinals.rar/file"
+    },
+    "Finals": {
+        "Div1": "https://www.mediafire.com/file/a88rz4v5qb8pcpu/Div_1_Finals.rar/file",
+        "Div2": "https://www.mediafire.com/file/0va9jf3udvgauar/Div_2_Finals.rar/file"
     }
 }
 
