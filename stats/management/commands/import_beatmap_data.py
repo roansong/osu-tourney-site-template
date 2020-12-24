@@ -56,7 +56,10 @@ class Command(BaseCommand):
 
                 beatmap.mod = row['mod']
                 beatmap.official = True
-                beatmap.identifier = f"{beatmap.mod}{map_number}"
+                if beatmap.mod == "TB":
+                    beatmap.identifier = f"{beatmap.mod}"
+                else:
+                    beatmap.identifier = f"{beatmap.mod}{map_number}"
 
                 mappool, _ = models.MapPool.objects.update_or_create(
                     name=row['pool'], defaults={'download_url': DOWNLOAD_LINKS.get(row['pool'])}
