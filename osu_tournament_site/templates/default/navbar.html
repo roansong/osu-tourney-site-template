@@ -24,6 +24,9 @@
         margin: auto 14px;
         display: flex;
     }
+    a.header-item {
+        display: flex;
+    }
     .header-image img {
         margin-top: 2px;
         width: 43px;
@@ -51,10 +54,12 @@
 <div class="grid-container">
     <nav>
         <ul id="nav" class="header">
-            <li class="header-item header-image"><a href="{{ home_url }}"><img src="{% static 'ozapt/images/logo.png' %}" alt="osu!za logo"/></a></li>
+            <a class="header-item" href="{{ home_url }}">
+            <li class="header-image"><img src="{% static 'ozapt/images/logo.png' %}" alt="osu!za logo"/></li>
             <li class="header-item"><h2>osu!za Private Tournament</h2></li>
+            </a>
             {% if about_url %}
-                <li class="header-bullet"><img alt="Bullet point" src="{% static "osu_tournament_site/images/bullet.png" %}"/></li>
+{#                <li class="header-bullet"><img alt="Bullet point" src="{% static "osu_tournament_site/images/bullet.png" %}"/></li>#}
                 <li class="header-item"><a href="{{ about_url }}">Info</a></li>
             {% endif %}
             {% if mappool_url %}
@@ -71,7 +76,7 @@
             {% endif %}
             {% if players_url %}
                 <li class="header-bullet"><img alt="Bullet point" src="{% static "osu_tournament_site/images/bullet.png" %}"/></li>
-                <li class="header-item"><a href="{{ players_url }}">Players</a></li>
+                <li class="header-item"><a href="{{ players_url }}">Participants</a></li>
             {% endif %}
             {% if bracket_url %}
                 <li class="header-bullet"><img alt="Bullet point" src="{% static "osu_tournament_site/images/bullet.png" %}"/></li>
