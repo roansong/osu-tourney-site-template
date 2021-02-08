@@ -8,4 +8,5 @@ urlpatterns = [
     path("bracket", views.BracketView.as_view(), name="bracket"),
     path("about", views.AboutView.as_view(), name="about"),
     path("stats", views.StatsView.as_view(), name="stats"),
+    path("teams", views.TeamsView.as_view(), name="teams"),
 ]

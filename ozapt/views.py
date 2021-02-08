@@ -1,4 +1,5 @@
 from django.conf import settings
+from django.forms import model_to_dict
 from django.urls import reverse, NoReverseMatch
 from django.views.generic import TemplateView, ListView
 
@@ -19,7 +20,7 @@ def add_nav_urls_to_context(context):
 
     exc(settings.HOME_URL, "home")
     exc(settings.ABOUT_URL, "about")
-    # exc(settings.MAPPOOL_URL, "mappool")
+    exc(settings.MAPPOOL_URL, "mappool")
     exc(settings.SCHEDULE_URL, "schedule")
     exc(settings.TEAMS_URL, "teams")
     exc(settings.PLAYERS_URL, "players")
@@ -57,6 +58,31 @@ class PlayersView(ListView):
         users = sorted(users, key=lambda user: user.tournament_rank, reverse=True)
         users = sorted(users, key=lambda user: user.username.lower())
         return users
+
+
+class TeamsView(ListView):
+    template_name = "teams.html"
+    context_object_name = "teams"
+    object = models.Team
+    model = models.Team
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        add_nav_urls_to_context(context)
+        return context
+
+    def get_queryset(self):
+        teams = self.model.objects.all()
+        output = []
+        for team in teams:
+            user_a, user_b = team.user_set.all()
+            d = model_to_dict(team)
+            d["player_a"] = user_a
+            d["player_b"] = user_b
+            output.append(d)
+        return output
+
+
 
 
 class MapPoolView(ListView):

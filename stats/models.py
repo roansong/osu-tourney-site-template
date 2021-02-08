@@ -126,6 +126,13 @@ class Division(models.Model):
     name = models.CharField(unique=True, max_length=25)
 
 
+class Team(models.Model):
+    name = models.TextField()
+
+    class Meta:
+        ordering = ["name"]
+
+
 class User(models.Model):
     ext_id = models.CharField(max_length=25, unique=True)
     username = models.CharField(max_length=30)
@@ -133,6 +140,7 @@ class User(models.Model):
     country_rank = models.IntegerField()
     global_rank = models.IntegerField()
     division = models.ForeignKey(Division, on_delete=PROTECT, null=True)
+    team = models.ForeignKey(Team, on_delete=PROTECT, null=True)
 
     @classmethod
     def from_json(cls, obj: dict):

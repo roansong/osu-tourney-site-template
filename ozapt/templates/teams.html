@@ -1,0 +1,47 @@
+{% extends "default/index.html" %}
+{% load static %}
+{% load humanize %}
+{% block head %}
+    <title>osu!za Private Tournament</title>
+    <link rel="stylesheet" href="{% static 'ozapt/styles.css' %}"/>
+    <link rel="stylesheet" href="{% static 'ozapt/teams.css' %}"/>
+{% endblock head %}
+{% block body %}
+    <div class="content-box">
+        <div class="content-body middle-column-box">
+            <h1>Participants</h1>
+            <ul class="team-list">
+                {% for team in teams %}
+                    <li class="team-card">
+                        <div class="team-name">{{ team.name }}</div>
+                        <div class="team-details">
+                            <a target="_blank" href="{{ team.player_a.profile_url }}">
+                                <span class="player-avatar">
+                                    <img alt="{{ team.player_a.username }}'s avatar"
+                                         title="{{ team.player_a.username }}'s avatar"
+                                         src="{{ team.player_a.avatar_url }}"/>
+                                </span>
+                                <span class="player-name mr">
+                                    {{ team.player_a.username }}
+                                </span>
+                            </a>
+                            <a target="_blank" href="{{ team.player_b.profile_url }}">
+                                <span class="player-name">
+                                    {{ team.player_b.username }}
+                                </span>
+                                <span class="player-avatar">
+                                    <img alt="{{ team.player_b.username }}'s avatar"
+                                         title="{{ team.player_b.username }}'s avatar"
+                                         src="{{ team.player_b.avatar_url }}"/>
+                                </span>
+                            </a>
+                        </div>
+                    </li>
+
+                {% endfor %}
+            </ul>
+        </div>
+
+    </div>
+
+{% endblock body %}
