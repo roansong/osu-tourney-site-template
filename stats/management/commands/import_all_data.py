@@ -24,7 +24,8 @@ class Command(BaseCommand):
             models.Match.objects.all().delete()
             models.Beatmap.objects.all().delete()
             models.User.objects.all().delete()
+            models.Team.objects.all().delete()
 
-        call_command("import_user_data")
+        call_command("import_team_data")
         call_command("import_beatmap_data")
         call_command("import_match_data")
