@@ -19,7 +19,7 @@ MODS = {
 
 DOWNLOAD_LINKS = {
     'Qualifiers': "https://www.dropbox.com/s/qd299qchefm50y6/OPTDuosQualifiers.zip?dl=0",
-    'Round of 16': "https://www.dropbox.com/s/7xgofk99mx4kp93/OPT%20Round%20of%2016%20Mappool.zip?dl=1",
+    'Round of 16': "https://www.dropbox.com/s/e0urgroem04rf6n/RO16DUOS.zip?dl=0",
     'Quarter Finals': "https://www.dropbox.com/s/meov2219wq7623r/QuarterFinalsPool.zip?dl=1",
     'Semi Finals': "https://www.dropbox.com/s/plmq8fszs3k1hmv/SemiFinalsMappool.zip?dl=1",
     'Finals': "https://www.dropbox.com/s/f5mu2ygwn78m184/OPTFINALSPool.zip?dl=1",

@@ -131,4 +131,4 @@ API_KEY = os.environ.get('API_KEY')
 
 HOME_URL = "/"
 ABOUT_URL = SCHEDULE_URL = TEAMS_URL = PLAYERS_URL = MAPPOOL_URL = BRACKET_URL = ""
-MASTER_SHEET_URL = "https://docs.google.com/spreadsheets/d/1BJEtg3HB1x0bgexx4v3qnA2SP07NDgFVAjpLxiep4jk/edit#gid=1272397301"
+MASTER_SHEET_URL = "https://docs.google.com/spreadsheets/d/1BJEtg3HB1x0bgexx4v3qnA2SP07NDgFVAjpLxiep4jk/edit#gid=1095849278"
