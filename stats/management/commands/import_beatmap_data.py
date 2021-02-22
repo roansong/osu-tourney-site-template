@@ -20,6 +20,7 @@ MODS = {
 DOWNLOAD_LINKS = {
     'Qualifiers': "https://www.dropbox.com/s/qd299qchefm50y6/OPTDuosQualifiers.zip?dl=0",
     'Round of 16': "https://www.dropbox.com/s/e0urgroem04rf6n/RO16DUOS.zip?dl=0",
+    "Quarter-Finals": "https://www.dropbox.com/s/b50bdn2e61q72v5/QuartersOPTD.zip?dl=0",
 }
 
 
