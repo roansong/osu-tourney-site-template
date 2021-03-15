@@ -22,6 +22,7 @@ DOWNLOAD_LINKS = {
     'Round of 16': "https://www.dropbox.com/s/e0urgroem04rf6n/RO16DUOS.zip?dl=0",
     "Quarter-Finals": "https://www.dropbox.com/s/b50bdn2e61q72v5/QuartersOPTD.zip?dl=0",
     "Semi-Finals": "https://www.dropbox.com/s/vnf9au76ntcrv3y/Semispoolhaha.rar?dl=0",
+    "Finals": "https://www.dropbox.com/s/18hhndru3jr09yd/FinalsOPTD.zip?dl=0",
 }
 
 
