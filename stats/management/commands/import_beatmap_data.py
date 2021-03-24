@@ -23,6 +23,7 @@ DOWNLOAD_LINKS = {
     "Quarter-Finals": "https://www.dropbox.com/s/b50bdn2e61q72v5/QuartersOPTD.zip?dl=0",
     "Semi-Finals": "https://www.dropbox.com/s/vnf9au76ntcrv3y/Semispoolhaha.rar?dl=0",
     "Finals": "https://www.dropbox.com/s/18hhndru3jr09yd/FinalsOPTD.zip?dl=0",
+    "Grand-Finals": "https://www.dropbox.com/s/2ro6ee10ip00256/GRANDFINALSBABYYYYY.zip?dl=0",
 }
 
 
